@@ -1,0 +1,31 @@
+
+<div class="container" style="background-color:white;">
+  <h1>HI This page lets you add a recipe url for me to add to the database once I figure out the schema</h1>
+  <!-- Right now, this page just triggers event for extracting spoonacular recipes
+  <button>Add Recipe</button> -->
+</div>
+
+<!-- <button ng-click=showRecipe=!showRecipe>Manually Add Recipe</button>
+<div class='container' ng-show=showRecipe>
+  Form for adding recipe
+</div> -->
+
+<div class= 'container'>
+  <h5>Upload Recipe Url</h5>
+  <!-- <section>
+    <select ng-model='recipe.website' placeholder="Pick a website">
+      <option selected disabled>Choose here</option>
+    </select> -->
+</section>
+  <section>
+    Enter Url Here: (currently it is not set up to recognize erroneous urls..)
+    <input type= "text" ng-model=recipe.Url placeholder="ie www.foodnetwork.com/recipeurl" required/>
+  </section>
+  <button ng-click="addRecipe()">Submit Recipe</button>
+</div>
+<div class ="container" >
+    <!-- Last Upload: {{recipeUrl}} -->
+    <div ng-repeat= "url in recipeUrls" style="overflow:scroll;">
+      Upload info: {{url.url}}
+    </div>
+</div>

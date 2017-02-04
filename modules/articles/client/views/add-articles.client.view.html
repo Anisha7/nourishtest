@@ -1,0 +1,266 @@
+<!-- <div class="navbar-fixed-top"> -->
+<!-- </div> -->
+<div style="border: solid 1px black; position:fixed; height:80%; width:80%; z-index:100;  top:20%;left:10%; background-color:white; overflow:scroll; overflow-x: hidden;">
+  <!-- <button  type="btn" ng-click="showAdd('b')" style="position:fixed; z-index:100;"> Close</button> -->
+  <button  type="btn" ui-sref="myArticles" style="position:fixed; z-index:100;"> Close</button>
+
+<!-- <div class= "container" style="padding:5%;">
+
+Why doesnt this div pop back up
+maybe consider using ng-if
+
+  Just use the currently available template, have an ng-repeat option
+  for adding additional images, have an optional additional links section
+
+  Although it may be better to give users option of seeing layout ahead of time
+  Can have them fill out a form, then use $state.go()
+
+ modify article object to include :title, author, date, tags, images, length/style
+<div class="row">
+  <h2>Select Layout</h2>
+  <div class="col-md-3">
+    <button>1 image</button>
+  </div>
+  <div class="col-md-3">
+    <button>2 images</button>
+  </div>
+  <div class="col-md-3">
+    <button>3 images</button>
+  </div>
+  <div class="col-md-3">
+    <button>Image Carousel</button>
+  </div>
+
+</div>
+
+<div class= "container" style="padding:5%;">
+
+<section style="width:80%; margin-left:-5%">
+  <div class="page-header">
+    <h1>{{vm.article._id ? 'Edit Article' : 'New Article'}}</h1>
+  </div>
+  <div class="pull-right">
+    <a ng-show="vm.article._id" class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div class="col-md-12"> -->
+    <!-- NOT INCLUDED vm.save(vm.form.articleForm.$valid) NOT INCLUDED-->
+    <!-- <form name="vm.form.articleForm" class="form-horizontal" ng-submit="saveArticle(vm.form.articleForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">Title</label>
+          <input name="title" type="text" ng-model="vm.article.title" id="title" class="form-control" placeholder="Title" required>
+          <div ng-messages="vm.form.articleForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Article title is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="content">Content</label>
+          <textarea name="content" data-ng-model="vm.article.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+          <div ng-messages="vm.form.articleForm.content.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Article Content is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="imgs">Upload an Image (x images per x words) ** modify a custom file upload mechanism since its not working</label> -->
+          <!--NOT INCLUDED <input name="imgs" type="file" data-ng-model="vm.article.imgs" id="imgs" class="form-control" placeholder="img" multiple required></input> -->
+          <!-- <fieldset>
+            <div ng-show="vm.fileSelected" class="form-group text-center">
+              <div ng-repeat="imgs in vm.article.imgs">
+                <img ngf-src="vm.fileSelected ? imgs : '/' + vm.user.profileImageURL" alt="{{vm.user.displayName}}" class="img-thumbnail user-profile-picture" ngf-drop>
+              </div>
+            </div>
+            <div ng-show="vm.loading" class="form-group text-center">
+              <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
+            </div>
+            <div ng-show="!vm.fileSelected" class="text-center form-group">
+              <button name="imgs" class="form-control btn btn-default btn-file" ngf-select="(vm.fileSelected = true) && (vm.loading = false)" ng-model="vm.article.imgs" accept="image/*" ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400" multiple required>Select Picture</button>
+            </div>
+            <div ng-show="vm.fileSelected" class="text-center form-group">
+              <button class="btn btn-primary" ng-click="vm.upload(picFile)">Use This Picture</button>
+              <button class="btn btn-default" ng-click="vm.fileSelected = false">Cancel</button>
+            </div>
+            <div ng-show="vm.fileSelected" class="progress text-center">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{vm.progress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{vm.progress}}%" ng-bind="vm.progress + '%'">
+                <span class="sr-only">{{vm.progress}}% Complete</span>
+              </div>
+            </div>
+          </fieldset>
+          <div ng-messages="vm.form.articleForm.imgs.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">At least one image is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="tags">Tags</label>
+          <input name="tags" type="text" ng-model="vm.article.tags" id="tags" class="form-control" placeholder="Tags" required>
+          <div ng-messages="vm.form.articleForm.tags.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Article tags are required.</p>
+          </div>
+          <div ng-messages="vm.form.articleForm.tags.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Please seperate tags by commas.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Create'}}</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
+</div> -->
+
+<!-- <div class="form-group">
+  <h3>TESTSETSET</h3>
+  <form enctype="multipart/form-data" action="/api/testArticles" method="post">
+    <input type="file" name="photo" multiple />
+    <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Create'}}</button>
+  </form>
+</div> -->
+
+
+
+<div class= "container" style="padding:5%;">
+
+Why doesnt this div pop back up
+maybe consider using ng-if
+
+  Just use the currently available template, have an ng-repeat option
+  for adding additional images, have an optional additional links section
+
+  Although it may be better to give users option of seeing layout ahead of time
+  Can have them fill out a form, then use $state.go()
+
+ modify article object to include :title, author, date, tags, images, length/style
+<div class="row">
+  <h2>Select Layout</h2>
+  <div class="col-md-3">
+    <button>1 image</button>
+  </div>
+  <div class="col-md-3">
+    <button>2 images</button>
+  </div>
+  <div class="col-md-3">
+    <button>3 images</button>
+  </div>
+  <div class="col-md-3">
+    <button>Image Carousel</button>
+  </div>
+
+</div>
+
+<div class= "container" style="padding:5%;">
+
+<section style="width:80%; margin-left:-5%">
+  <div class="page-header">
+    <h1>{{vm.article._id ? 'Edit Article' : 'New Article'}}</h1>
+  </div>
+  <div class="pull-right">
+    <a ng-show="vm.article._id" class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div class="col-md-12">
+    <!-- NOT INCLUDED vm.save(vm.form.articleForm.$valid) NOT INCLUDED-->
+    <form name="vm.form.articleForm" class="form-horizontal" ng-submit="saveArticle(vm.form.articleForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">Title</label>
+          <input name="title" type="text" ng-model="vm.article.title" id="title" class="form-control" placeholder="Title" required>
+          <div ng-messages="vm.form.articleForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Article title is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="content">Content</label>
+          <textarea name="content" data-ng-model="vm.article.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+          <div ng-messages="vm.form.articleForm.content.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Article Content is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="imgs">Upload an Image (x images per x words) ** modify a custom file upload mechanism since its not working</label>
+          <!--NOT INCLUDED <input name="imgs" type="file" data-ng-model="vm.article.imgs" id="imgs" class="form-control" placeholder="img" multiple required></input> -->
+          <fieldset>
+            <div ng-show="vm.fileSelected" class="form-group text-center">
+              <div ng-repeat="imgs in vm.article.imgs">
+                <img ngf-src="vm.fileSelected ? imgs : '/' + vm.user.profileImageURL" alt="{{vm.user.displayName}}" class="img-thumbnail user-profile-picture" ngf-drop>
+              </div>
+            </div>
+            <div ng-show="vm.loading" class="form-group text-center">
+              <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
+            </div>
+            <div ng-show="!vm.fileSelected" class="text-center form-group">
+              <button name="imgs" class="form-control btn btn-default btn-file" ngf-select="(vm.fileSelected = true) && (vm.loading = false)" name="photo" ng-model="vm.article.imgs" accept="image/*" ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400" multiple required>Select Picture</button>
+            </div>
+            <div ng-show="vm.fileSelected" class="text-center form-group">
+              <button class="btn btn-primary" ng-click="vm.upload(picFile)">Use This Picture</button>
+              <button class="btn btn-default" ng-click="vm.fileSelected = false">Cancel</button>
+            </div>
+            <div ng-show="vm.fileSelected" class="progress text-center">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{vm.progress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{vm.progress}}%" ng-bind="vm.progress + '%'">
+                <span class="sr-only">{{vm.progress}}% Complete</span>
+              </div>
+            </div>
+          </fieldset>
+          <div ng-messages="vm.form.articleForm.imgs.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">At least one image is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="tags">Tags</label>
+          <input name="tags" type="text" ng-model="vm.article.tags" id="tags" class="form-control" placeholder="Tags" required>
+          <div ng-messages="vm.form.articleForm.tags.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Article tags are required.</p>
+          </div>
+          <div ng-messages="vm.form.articleForm.tags.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Please seperate tags by commas.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Create'}}</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
+</div>
+
+
+<section class="row">
+  <!-- <div class="form-group" >
+    <label class="control-label" for="title">Title</label>
+    <input name="title" type="text" ng-model="vm.article.title" id="title" class="form-control" placeholder="Title" required>
+
+  </div> -->
+  <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-4">
+
+    <form class="signin form-horizontal">
+      <fieldset>
+        <div class="form-group text-center">
+          <div ng-repeat="imgs in picFile">
+            <img ngf-src="vm.fileSelected ? picFile : '/' + vm.user.profileImageURL" alt="{{vm.user.displayName}}" class="img-thumbnail user-profile-picture" ngf-drop>
+          </div>
+        </div>
+        <div ng-show="vm.loading" class="form-group text-center">
+          <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
+        </div>
+        <div ng-show="!vm.fileSelected" class="text-center form-group">
+          <button class="btn btn-default btn-file" ngf-select="(vm.fileSelected = true) && (vm.loading = false)" ng-model="picFile" accept="image/*" ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400" multiple>Select Picture</button>
+        </div>
+        <div ng-show="vm.fileSelected" class="text-center form-group">
+          <button class="btn btn-primary" ng-click="testUpload(picFile)">Use This Picture</button>
+          <button class="btn btn-default" ng-click="vm.fileSelected = false">Cancel</button>
+        </div>
+        <div ng-show="vm.fileSelected" class="progress text-center">
+          <div class="progress-bar" role="progressbar" aria-valuenow="{{vm.progress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{vm.progress}}%" ng-bind="vm.progress + '%'">
+            <span class="sr-only">{{vm.progress}}% Complete</span>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
+</div>  <!-- end div for line at the very top-->

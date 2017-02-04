@@ -1,0 +1,33 @@
+<div class="jumbotron">
+  <h1>
+    My Articles
+
+    <!-- <button class="btn pull-right" ng-click="showAdd('a')">Create Article</button> -->
+    <button class="btn pull-right" ui-sref = "myArticles.addArticle">Create Article</button>
+    <button class="btn pull-right" ng-click="viewArticle()">Go Test</button>
+    <button class="btn pull-right" ui-sref = "myArticles.addURL">Upload Link</button>
+  </h1>
+  <div class="col-md-6">
+    Repeat Lists of uploaded articles by user
+    Clicking should take to edit article page rather than viewer
+    <div class="list-group">
+      <!--  use ng-click instead of ui-sref to to route to the article view-->
+      <a ng-repeat="article in vm.articles" ui-sref="myArticles.viewer({ articleId: article._id })" class="list-group-item">
+        <small class="list-group-item-text">
+          Posted on
+          <span ng-bind="article.created | date:'mediumDate'"></span>
+          by
+          <span ng-if="article.user" ng-bind="article.user.displayName"></span>
+          <span ng-if="!article.user">Deleted User</span>
+        </small>
+        <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
+        <p class="list-group-item-text" ng-bind="article.content"></p>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-6">
+    Repeat lists of links uploaded by user
+  </div>
+</div>
+<div ui-view="viewArticle"></div>
+<div ui-view="addArticleOrUrl"></div>

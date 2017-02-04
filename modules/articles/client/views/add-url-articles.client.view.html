@@ -1,0 +1,53 @@
+<div style="border: solid 1px black; position:fixed; height:80%; width:80%; z-index:100;  top:20%;left:10%; background-color:white; overflow:scroll; overflow-x: hidden;">
+  <button  type="btn" ui-sref="myArticles" style="position:fixed; z-index:100;"> Close</button>
+  <br>
+  <!-- <h7>In controller, set up verification to make sure the entered link is a url</h7>
+  <li>Enter URL:  <input type="text" ng-model="articleUrl.url"/> </li>
+  <li>Title: <input type= "text" ng-model="articleUrl.title"/> </li>
+  <li>Description: <input type="text" ng-model="articleUrl.description"/> </li>
+  <li>Tags: <input type= "text" ng-model="articleUrl.tags"/></li>
+  <button type= "submit">Upload Url </button> -->
+
+  <div class="col-md-10" style="margin: 0 auto;">
+    <form name="vm.form.UrlForm" class="form-horizontal" ng-submit="saveUrl(vm.form.UrlForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="title">Title</label>
+          <input name="title" type="text" ng-model="vm.Url.title" id="title" class="form-control" placeholder="Title" required>
+          <div ng-messages="vm.form.UrlForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Url title is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="content">Description</label>
+          <textarea name="content" data-ng-model="vm.Url.description" id="content" class="form-control" cols="30" rows="3" placeholder="Content" required></textarea>
+          <div ng-messages="vm.form.UrlForm.content.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Url description is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group" show-errors>
+          <label class="control-label" for="tags">Tags</label>
+          <input name="tags" type="text" ng-model="vm.Url.tags" id="tags" class="form-control" placeholder="Tags" required>
+          <div ng-messages="vm.form.UrlForm.tags.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Url tags are required.</p>
+          </div>
+          <div ng-messages="vm.form.articleForm.tags.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Please seperate tags by commas.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="Url">Url</label>
+          <input name="title" type="text" ng-model="vm.Url.url" id="Url" class="form-control" placeholder="Title" required>
+          <div ng-messages="vm.form.UrlForm.url.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Url title is required.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Upload'}}</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

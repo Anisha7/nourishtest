@@ -1,0 +1,22 @@
+HELLO
+<div style="border: solid 1px black; position:fixed; height:70%; width:70%; z-index:100;  top:20%;left:20%; background-color:white;">
+  <div class "row">
+    <div class="col-md-2">
+      <!-- <button type='button' ng-click="viewMeal(-1)">Close</button> -->
+      <button type='button' ui-sref="userMP.userBrowse">Close</button>
+
+      <button type='button' ui-sref="mealPlanner.browse.addMeal">Add Meal to Calendar</button>
+      <button type='button'  ui-sref="mealPlanner.browse.add">View Info</button>
+      <button type='button'  ui-sref="mealPlanner.browse.add">Add To Favorites</button>
+      <button type='button'  ui-sref="mealPlanner.browse.comments">Comments</button>
+
+    </div>
+    <div class="col-md-10">
+      see more images, add to favorites, comment, add to calendar, view nutrition information, view preperation instructions, view ingredients
+      <div ui-view></div>
+    </div>
+  </div>
+  <div class= "row" style="top:75%;">
+    Source:
+  </div>
+</div>

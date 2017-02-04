@@ -1,0 +1,137 @@
+<h3>Create button for adding new health log, make this the health log page</h3>
+
+<div class="container" style="margin-top:5%; width:105%;">
+  <nav class="navbar navbar-custom navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sortbar" aria-expanded="false" ng-click="show=!show" >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Health Catagories</a>
+
+        </div>
+        <div class="collapse navbar-collapse" ng-show="show"id="sortbar">
+          <ul class="nav navbar-header" style="text-align:center;margin-top:margin-bottom;">
+            <li style="float:left;"><a id= 'dog' href=''style="outline:0; " ></a>What is height/weight info catagorized as</li>
+            <li style="float:left;"><a id= 'dog' href=''style="outline:0; " >History</a></li>
+            <li style="float:left;"><a id= 'dog' href=''style="outline:0; " >Location info </a></li>
+          </ul>
+        </div>
+    </div>
+  </nav>
+<div class="row">
+  <input type="text" placeholder="height"/>
+  <input type="text" placeholder="weight"/>
+  <input type="text" placeholder="Blood Pressure"/>
+  <input type="text" placeholder="Date of "/>
+
+
+
+</div>
+<div class="row">
+  <div class="form-group" style="label{display:inline-block;}">
+    <div class="col-md-6">
+      <ul>
+        <li><label>Arthritis</label><input type="checkbox"/></li>
+        <li><label>RA</label><input type="checkbox"/></li>
+        <li><label>OA</label><input type="checkbox"/></li>
+        <li><label>Stroke</label><input type="checkbox"/></li>
+        <li><label>High Cholesterol</label><input type="checkbox"/> <input type="text" placeholder="How High?"/></li>
+        <li><label>Diabetes</label><input type="checkbox"/></li>
+        <li><label>Metabolic Syndrome</label><input type="checkbox"/></li>
+        <li><label>Insulin Resistance</label><input type="checkbox"/></li>
+        <li><label>Low Blood Sugar</label><input type="checkbox"/></li>
+        <li><label>Chronic Fatigue</label><input type="checkbox"/></li>
+        <li><label>Fibromyalgia</label><input type="checkbox"/></li>
+        <li><label>Multiple Chemical Sensitivities</label><input type="checkbox"/></li>
+        <li><label>Infectious Mononucleousis</label><input type="checkbox"/></li>
+        <li><label>Frequent Colds/Flu</label><input type="checkbox"/></li>
+        <li><label>Herpes/HPV</label><input type="checkbox"/></li>
+        <li><label>Cold Sores</label><input type="checkbox"/></li>
+        <li><label>Cancer</label><input type="checkbox"/><input type="text" placeholder="what type"/> <input type="text" placeholder="Chemo? What type"/></li>
+        <li><label>Steroids</label><input type="checkbox"/></li>
+        <li><label>Rads</label><input type="checkbox"/></li>
+        <li><label>Surgeries</label><input type="checkbox"/><input type="text" placeholder="what type?"/></li>
+        Continue this list
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <li><label>Thyroid Problems</label><input type="checkbox"/></li>
+      <li><label>Hypothyroidism</label><input type="checkbox"/></li>
+      <li><label>Headaches</label><input type="checkbox"/></li>
+      <li><label>Chronic Tension</label><input type="checkbox"/></li>
+      <li><label>Migraines</label><input type="checkbox"/></li>
+      <li><label>Cluster</label><input type="checkbox"/></li>
+      <li><label>Hormonal</label><input type="checkbox"/></li>
+      <li><label>Food Allergies</label><input type="checkbox"/></li><input type="text" placeholder="To What?"/>
+      <li><label>Seasonal Allergies</label><input type="checkbox"/></li><input type="text" placeholder="To What?"/>
+      <li><label>Medication Allergies</label><input type="checkbox"/></li><input type="text" placeholder="To What?"/>
+      <li><label>Sleep Problems</label><input type="checkbox"/></li>
+      <li><label>Forgetfulness</label><input type="checkbox"/></li>
+      <li><label>Hot Flashes</label><input type="checkbox"/></li>
+      <li><label>PMS</label><input type="checkbox"/></li>
+      <li><label>Birth Control Pills/ Hormones</label><input type="checkbox"/></li>
+      <li><label>Weight Problems</label><input type="checkbox"/></li>
+      <li><label>Constipation</label><input type="checkbox"/></li>
+      <li><label>Diarrhea</label><input type="checkbox"/></li>
+      <li><label>Abdominal Cramping/Bloating</label><input type="checkbox"/></li>
+      <li><label>Yeast Infections</label><input type="checkbox"/></li>
+      <li><label>Low Libedo</label><input type="checkbox"/></li>
+      <li><label>Ulcers</label><input type="checkbox"/></li>
+    </div>
+  </div>
+</div>
+</div class="form-group">
+  <h5>What medications and dosages are you taking?</h5>
+  <input type="textarea"/>
+  <h5>What vitamins and herbal supplements are you taking?</h5>
+  <input type="textarea"/>
+
+</div>
+<div class="form-group">
+  <h5>Do you eat,drink, or use (check all that apply please)</h5>
+  <div class="row">
+    <div class="col-md-4">
+      <li><label>Antacids</label><input type="checkbox"/></li>
+      <li><label>Asperin</label><input type="checkbox"/></li>
+      <li><label>Tylenol</label><input type="checkbox"/></li>
+      <li><label>Ibuprofen</label><input type="checkbox"/></li>
+      <li><label>Laxatives</label><input type="checkbox"/></li>
+      <li><label>Refind Sugars</label><input type="checkbox"/></li>
+      <li><label>Margarine</label><input type="checkbox"/></li>
+      <li><label>Chewing Gum</label><input type="checkbox"/></li>
+      <li><label>Salt</label><input type="checkbox"/></li>
+      <li><label>Artifical Sweeteners (Pink, Blue, Yellow)</label><input type="checkbox"/></li>
+    </div>
+    <div class="col-md-4">
+      <li><label>Protein Drinks</label><input type="checkbox"/></li>
+      <li><label>Alcohol</label><input type="checkbox"/></li>
+      <li><label>Tap Water</label><input type="checkbox"/></li>
+      <li><label>Bottled Water</label><input type="checkbox"/></li>
+      <li><label>Tea</label><input type="checkbox"/></li>
+      <li><label>Candy</label><input type="checkbox"/></li>
+      <li><label>Butter</label><input type="checkbox"/></li>
+      <li><label>Fried Foods</label><input type="checkbox"/></li>
+      <li><label>Tobacco</label><input type="checkbox"/></li>
+      <li><label>Appetite Suppressants</label><input type="checkbox"/></li>
+
+    </div>
+    <div class="col-md-4">
+      <li><label>Coffee</label><input type="checkbox"/></li>
+      <li><label>Decaf Coffee</label><input type="checkbox"/></li>
+      <li><label>Diet Sodas</label><input type="checkbox"/></li>
+      <li><label>Soda</label><input type="checkbox"/></li>
+      <li><label>White Bread</label><input type="checkbox"/></li>
+      <li><label>Fast Food</label><input type="checkbox"/></li>
+      <li><label>Chips</label><input type="checkbox"/></li>
+      <li><label>Cigarettes</label><input type="checkbox"/></li>
+      <li><label>Coffee Creamers</label><input type="checkbox"/></li>
+
+    </div>
+  </div>
+  <h5>List any food aversions and or foods you dislike (will probably have to use person to input this information, assuming there might be some unique information)</h5>
+  <h5>Cravings, current or past, if past, what has changed?</h5>
+</div>

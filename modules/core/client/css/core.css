@@ -1,0 +1,101 @@
+.content {
+  margin-top: 50px;
+}
+.undecorated-link:hover {
+  text-decoration: none;
+}
+[ng\:cloak],
+[ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+.header-profile-image {
+  border-radius: 50%;
+  height: 28px;
+  margin-right: 5px;
+  opacity: 0.8;
+  width: 28px;
+}
+.open .header-profile-image,
+a:hover .header-profile-image {
+  opacity: 1;
+}
+.user-header-dropdown-toggle {
+  padding-bottom: 11px !important;
+  padding-top: 11px !important;
+}
+.user-primary-account {
+  font-size: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.error-text {
+  display: none;
+}
+.has-error .help-block.error-text {
+  display: block;
+}
+.has-error .help-inline.error-text {
+  display: inline;
+}
+.dropdown:hover .dropdown-menu {
+      display: block;
+}
+body {
+  /*background: url(../img/nourishhome.jpg) no-repeat bottom center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;*/
+  background-color:red;
+
+}
+.content{
+  width:100%;
+  height:700px;
+  background: url(../img/nourishhome.jpg);
+  background-size:cover;
+  /*background-color:red;*/
+}
+#views{
+  background-color:grey;
+  z-index:100;
+}
+.intro {
+  /*display: table;*/
+  /*width: 100%;
+  height: 100%;*/
+  /*margin-top:;*/
+  /*padding: 100px 0;*/
+  z-index: 100;
+  text-align: center;
+  color: white;
+  background-size: cover;
+  /*background: url(../img/nourishhome.jpg) no-repeat bottom center scroll;*/
+  /*background-color: black;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.intro .intro-body .brand-heading {
+  font-size: 40px;
+}
+.intro .intro-body .intro-text {
+  font-size: 18px;
+}
+/*.navbar-custom {
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: black;
+  height: 10%;
+  padding: 1% 0;
+}*/
+.navbar-collapse{
+  background-color:white;
+}
