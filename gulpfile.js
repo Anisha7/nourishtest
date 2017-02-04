@@ -25,7 +25,7 @@ var _ = require('lodash'),
   webdriver_update = require('gulp-protractor').webdriver_update,
   webdriver_standalone = require('gulp-protractor').webdriver_standalone,
   del = require('del'),
-  load_grunt_tasks = require('load_grunt_tasks'),
+  // load_grunt_tasks = require('load_grunt_tasks'),
   KarmaServer = require('karma').Server;
 
 // Local settings
