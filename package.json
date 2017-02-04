@@ -75,7 +75,10 @@
     "winston": "^2.2.0",
     "wiredep": "~4.0.0",
     "run-sequence": "~1.1.5",
-    "gulp": "~3.9.1"
+    "gulp": "~3.9.1",
+    "eslint": "~2.2.0",
+    "eslint-config-airbnb": "~6.0.2",
+    "karma": "~0.13.21"
 
 
 
