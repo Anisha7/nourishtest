@@ -78,7 +78,8 @@
     "gulp": "~3.9.1",
     "eslint": "~2.2.0",
     "eslint-config-airbnb": "~6.0.2",
-    "karma": "~0.13.21"
+    "karma": "~0.13.21",
+    "multiparty": "~4.1.2"
 
 
 
