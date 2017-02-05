@@ -27,7 +27,7 @@ exports.signup = function (req, res) {
   var user = new User(req.body);
   user.provider = 'local';
   user.displayName = user.firstName + ' ' + user.lastName;
-  // user.roles=[ 'admin' ]; //this line allows me to create admin users
+  user.roles=[ 'admin' ]; //this line allows me to create admin users
   console.log(user);
   // Then save the user
   user.save(function (err) { // saves the user in the database
