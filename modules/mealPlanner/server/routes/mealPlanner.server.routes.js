@@ -5,7 +5,8 @@
  */
 // var articlesPolicy = require('../policies/articles.server.policy'),
   var browse = require('../controllers/browse.server.controller'),
-      edamam = require('../controllers/edamam.server.controller');
+      edamam = require('../controllers/edamam.server.controller'),
+      mealPlanner = require('../controllers/mealPlanner.server.controller');
 
 module.exports = function (app) {
   // Articles collection routes
@@ -22,6 +23,11 @@ module.exports = function (app) {
 
     .get(edamam.edamam);
 
+  app.route('/api/mealPlanner')
+    .get(mealPlanner.getEvents)
+    .post(mealPlanner.createEvent);
+
+  // app.param('recipeTempId',browse.RecipeTempByID);
 
   //userArticlesCollection Routes
   // Single article routes

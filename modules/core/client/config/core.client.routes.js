@@ -8,6 +8,7 @@
   routeConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function routeConfig($stateProvider, $urlRouterProvider) {
+    console.log('in route config'); //watch here for temporary errors
     $urlRouterProvider.rule(function ($injector, $location) {
       var path = $location.path();
       var hasTrailingSlash = path.length > 1 && path[path.length - 1] === '/';
@@ -31,7 +32,8 @@
       .state('userHome', {
         url: '/',
         templateUrl: '/modules/core/client/views/testloggedin.html',
-        controller: 'HomeController',
+        // controller: 'HomeController',
+        controller: 'HomeUserController',
         controllerAs: 'vm',
         data: {
           roles: ['user', 'admin']

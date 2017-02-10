@@ -7,6 +7,7 @@ var path = require('path'),
   mongoose = require('mongoose'),
   // recipe = mongoose.model('Recipe'),
   // TestArticle = mongoose.model('TestArticle'),
+  MealPlannerEvent = mongoose.model('MealPlannerEvent'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
   //right now, am just going to have to use the unirest spoonacular calls
@@ -15,7 +16,20 @@ var path = require('path'),
 
 
 exports.createEvent = function (req, res){
-
+  // console.log(req.body);
+  var mealPlannerEvent = new MealPlannerEvent(req.body);
+  console.log(mealPlannerEvent);
+  mealPlannerEvent.user = req.user;
+  mealPlannerEvent.save(function (err) {
+    if (err) {
+      console.log(err);
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(mealPlannerEvent);
+    }
+  });
 }
 exports.editEvent = function (req, res){
 
@@ -26,7 +40,17 @@ exports.deleteEvent = function (req, res){
 //gets upcoming events based on calendar views
 //before sending events, changes them to completed
 exports.getEvents= function (req, res){
+  MealPlannerEvent.find({user: req.user}).sort('-created').populate('user', 'displayName').exec(function (err, events) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      // console.log(recipes);
 
+      res.json(events);
+    }
+  });
 }
 // // mongoose.connect("mongodb://localhost:27017/mean-dev/TestArticles");
 // /**

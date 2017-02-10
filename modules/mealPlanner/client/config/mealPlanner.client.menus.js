@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('myHealth')
+    .module('mealPlanner')
     .run(menuConfig);
 
   menuConfig.$inject = ['menuService'];
@@ -31,7 +31,7 @@
 
     menuService.addSubMenuItem('topbar', 'mealPlanner', {
       title: 'Calendar',
-      state: 'mealPlanner',
+      state: 'userMP.calendarTest',
       roles: ['user', 'admin']
     });
 

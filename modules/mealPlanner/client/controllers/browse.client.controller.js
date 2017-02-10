@@ -7,35 +7,45 @@
 
 //Use the browse controller to load recipe lists?, process recipe search functions
 //Eventually convert this to a 'user browse'
-  BrowseController.$inject = ['$scope', 'Authentication', '$http'];
+  BrowseController.$inject = ['$scope', 'Authentication', '$http', '$state', '$stateParams'];
 
-  function BrowseController($scope, Authentication, $http) {
+  function BrowseController($scope, Authentication, $http, $state, $stateParams) {
     var vm = this;
 
     vm.user=Authentication.user;
     // vm.article = article;
     vm.authentication = Authentication;
     $scope.data=[];
-    console.log(vm.user)
-    if (!vm.user){
-      console.log('gonna have to do some rerouting');
-    }
+    $scope.temp={};
+    $scope.currentRecipeView={};
+    // console.log(vm.user)
+    // if (!vm.user){
+    //   console.log('gonna have to do some rerouting');
+    // }
     init();
     function init(){
+      if ($stateParams)
+        $scope.currentRecipeView=$stateParams;
+      // else {
+      //   $scope.currentRecipeView={};
+      // }
+
       //Switch to service for this eventually
       $http.get('/api/browse/recipes').success(function(response) { //fills the initial table
-                      $scope.data = response[0].results;
-                      console.log(response[0].results);
-                      $scope.apply;
-                      // console.log(response);
-                      // console.log($scope.data);
-                      // console.log($scope.data.Dish);
-                  }).error(function(error)
-              {
-                console.log("Error");
-          //some code
-              });
-      return;
+            // for (var x= 0;x<response.length;x++){
+            //   $scope.data[x]=response[x];
+            // }
+            // return response;
+            // console.log(typeof(response));
+            // $scope.temp =response;
+            $scope.data=response; //causing an error for some reason
+            // console.log(response[0].results);
+            // $scope.apply;
+        }).error(function(error){
+          console.log("Error");
+    //some code
+        });
+      // return;
     }
     $scope.viewMeal=function(recipe){
           // console.log(recipe);
@@ -45,6 +55,15 @@
             //clear out all information
           }
           $scope.getInfo=!$scope.getInfo;
+    }
+    $scope.currentRecipe = function(recipe){
+      console.log(recipe);
+      // $scope.currentRecipe={};
+      // $scope.currentRecipe=recipe;
+      $state.go('userMP.userBrowse.viewRecipe', {'recipe':recipe})
+    }
+    $scope.testCurrentRecipe = function(){
+      console.log($scope.currentRecipeView);
     }
   }
 }());

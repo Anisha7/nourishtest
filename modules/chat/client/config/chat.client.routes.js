@@ -18,6 +18,17 @@
           roles: ['user', 'admin'],
           pageTitle: 'Chat'
         }
+      })
+      .state('eChat', {
+        url: '/Echat',
+        templateUrl: '/modules/chat/client/views/echat.client.view.html',
+        controller: 'EChatController',
+        controllerAs: 'vm',
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Echat'
+        },
+        sticky: true
       });
   }
 }());

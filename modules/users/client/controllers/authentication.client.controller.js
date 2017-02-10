@@ -85,6 +85,7 @@
       console.log('onusersigninsuccess');
       //redirect to userlogged in home
       // $state.go($state.previous.state.name || 'home', $state.previous.params);
+      // console.log($state.previous.params);
       $state.go('userHome', $state.previous.params);
 
     }

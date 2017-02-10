@@ -1,15 +1,28 @@
 'use strict';
 
+function updateOnlineContacts (){
+  //function has to broadcast to all online users that x is online
+  //keeps track of which users are online
+}
+function addNewContact(){
+  //maybe put in the controller
+}
+
 // Create the chat configuration
 module.exports = function (io, socket) {
+  // console.log(socket);
   // Emit the status event when a new socket client is connected
-  io.emit('chatMessage', {
-    type: 'status',
-    text: 'Is now connected',
-    created: Date.now(),
-    profileImageURL: socket.request.user.profileImageURL,
-    username: socket.request.user.username
-  });
+  // io.on('connection', function(){
+  console.log(socket.request);
+  console.log(socket.id);
+    io.emit('chatMessage', {
+      type: 'status',
+      text: 'Is now connected',
+      created: Date.now(),
+      profileImageURL: socket.request.user.profileImageURL,
+      username: socket.request.user.username
+    });
+  // })
 
   // Send a chat messages to all connected sockets when a message is received
   socket.on('chatMessage', function (message) {

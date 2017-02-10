@@ -38,7 +38,7 @@
           <div class="caption">
               <div style="height:100px;">
                 <h3 style="z-index:100;"><p style='font-size:13px'>{{recipe.title}}</p><br>
-                    <small style="position:relative;">  <b>Cook Time:</b>{{recipe.readyInMinutes}} Mins</small>
+                    <small style="position:relative;">  <b>Cook Time:</b>Mins</small>
                 </h3>
               <!-- <button class="btn btn-primary" type="button" ng-click="getRecipe(recipe.id)">Get Recipe</button> -->
               <!-- <button class="btn btn-primary" type="button" ng-click="alert(recipe.id)">Alert</button> -->
@@ -49,6 +49,8 @@
 
               <!-- <button class="btn btn-primary" type="button" ng-click="viewMeal(recipe)">Learn More</button> -->
               <!-- Note: pass recipe information to the next uiview, then from controller get recipe information -->
+
+              <button class="btn btn-primary" type="button"  ng-click="currentRecipe(recipe)">Learn More</button>
               <button class="btn btn-primary" type="button" ui-sref="userMP.userBrowse.viewRecipe">Learn More</button>
 
           </div>
@@ -78,7 +80,7 @@
   </div>
 
 
-  <div ui-view="viewRecipeOrSearch"></div>
+  <div ui-view="viewRecipeOrSearch" style='background-color:green;'></div>
 
 
   <!-- <div ng-show="getInfo"  style="border: solid 1px black; position:fixed; height:70%; width:70%; z-index:100;  top:20%;left:20%; background-color:white;">

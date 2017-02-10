@@ -8,7 +8,7 @@
   RecipeService.$inject = ['$resource', '$log'];
 
   function RecipeService($resource, $log) {
-    var Article = $resource('/api/testArticles/:customArticleId', {
+    var Recipe = $resource('/api/testArticles/:customArticleId', {
       customArticleId: '@_id'
     }, {
       update: {
@@ -18,24 +18,24 @@
 
 
 
-    angular.extend(Article.prototype, {
+    angular.extend(Recipe.prototype, {
       createOrUpdate: function () {
         var article = this;
-        return createOrUpdate(article);
+        return createOrUpdate(Recipe);
       }
     });
 
-    return Article;
+    return Recipe;
 
-    function createOrUpdate(article) {
-      if (article._id) {
-        return article.$update(onSuccess, onError);
+    function createOrUpdate(recipe) {
+      if (recipe._id) {
+        return recipe.$update(onSuccess, onError);
       } else {
-        return article.$save(onSuccess, onError);
+        return recipe.$save(onSuccess, onError);
       }
 
       // Handle successful response
-      function onSuccess(article) {
+      function onSuccess(recipe) {
         // Any required internal processing from inside the service, goes here.
       }
 

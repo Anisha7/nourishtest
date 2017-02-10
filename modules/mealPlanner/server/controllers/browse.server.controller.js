@@ -11,6 +11,7 @@ var path = require('path'),
   // var jwt = require('jsonwebtoken');
   // var bcrypt = require('bcryptjs');
   RecipeUrl = mongoose.model('RecipeUrl'),
+  RecipeTemp = mongoose.model('RecipeTemp'),
   fs = require('fs'),
   XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest,
   cheerio = require('cheerio'),
@@ -36,6 +37,7 @@ var path = require('path'),
         // console.log('founddocs');
         // console.log(docs);
         // console.log(docs);
+        // console.log(docs);
         deferred.resolve(docs);
       }
       else{
@@ -47,13 +49,39 @@ var path = require('path'),
 exports.listRecipes= function(req, res){
   //just list a bunch of recipes walawala
   //might need to call the get ratings here
-  getTestRecipes().then(function(obj){
-    res.json(obj);
-    // status(200).
-  })
-  .catch(function(err){
-    res.status(404);
-  })
+  RecipeTemp.find().sort('-created').populate('user', 'displayName').exec(function (err, recipes) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      // console.log(recipes);
+      res.json(recipes);
+    }
+  });
+  // getTestRecipes().then(function(obj){
+  //   // console.log(json(obj.results));
+  //   // console.log(obj[0].results);
+  //   // for (var x=0; x<obj[0].results.length;x++){
+  //   //   // console.log(obj[0].results[x]);
+  //   //   var recipeTemp = new RecipeTemp(obj[0].results[x]);
+  //   //   // console.log(recipeTemp);
+  //   //   recipeTemp.save(function (err) {
+  //   //     if (err) {
+  //   //       return res.status(422).send({
+  //   //         message: errorHandler.getErrorMessage(err)
+  //   //       });
+  //   //     } else {
+  //   //       console.log(recipeTemp);
+  //   //     }
+  //   //   });
+  //   // }
+  //   res.json(obj);
+  //   // status(200).
+  // })
+  // .catch(function(err){
+  //   res.status(404);
+  // })
 }
 
 exports.getRecipeByID= function (req,res){

@@ -27,6 +27,12 @@
         templateUrl: '/modules/mealPlanner/client/views/mealPlanner-index.client.view.html',
         sticky: true
       })
+      .state('userMP.calendarTest', {
+        url: '/calendar',
+        templateUrl: '/modules/mealPlanner/client/views/UserViews/mealPlanner-calendar.client.view.html',
+        controller: 'MealCalendarController',
+        controllerAs: 'vm'
+      })
       .state('userMP.userBrowse', {
         // abstract: true,
         url: '/browse',
@@ -39,9 +45,23 @@
         url: '/testingStill',
         views:{
           'viewRecipeOrSearch': {
-            templateUrl: '/modules/mealPlanner/client/views/recipeViews/viewRecipe.client.view.html'
+            templateUrl: '/modules/mealPlanner/client/views/recipeViews/viewRecipe.client.view.html',
+            controller: 'RecipeController',
+            controllerAs: 'vm'
           }
-        }
+        },
+        params: {
+          recipe: null
+        },
+        sticky:true
+      })
+      .state('userMP.userBrowse.viewRecipe.recipeNutrition', {
+        url: '', //eventually this should be the recipe id
+        templateUrl: '/modules/mealPlanner/client/views/recipeViews/recipeNutrition.client.view.html'
+      })
+      .state('userMP.userBrowse.viewRecipe.recipeAddToCalendar', {
+        url: '', //eventually this should be,
+        templateUrl: '/modules/mealPlanner/client/views/recipeViews/recipeAddToCalendar.client.view.html'
       })
       .state('userMP.addRecipe', {
         url: '/addRecipe',
@@ -55,7 +75,7 @@
         controller: 'AddRecipeController',
         controllerAs: 'vm'
       });
-      $stickyStateProvider.enableDebug(true);
+      // $stickyStateProvider.enableDebug(true);
 
   }
 }());

@@ -24,6 +24,9 @@ module.exports = {
         'public/lib/angular-ui-router/release/angular-ui-router.min.js',
         'public/lib/ng-file-upload/ng-file-upload.min.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'public/lib/angular-bootstrap-calendar-master/dist/js/angular-bootstrap-calendar-tpls.min.js'
+        'public/lib/moment-develop/moment.js',
+
         // endbower
       ]
     },

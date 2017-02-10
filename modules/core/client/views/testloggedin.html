@@ -1,10 +1,10 @@
-You are logged in {{vm.user}}
+You are logged in {{vm.user.username}}
 
 Turn this screen into a news feed of recent article and url uploads
 
 <!-- <script language="javascript" src="http://www.quotationspage.com/data/qotd.js">
 </script> <!--End JavaScript Quotations code--> -->
-<div class="container" style="font-family: 'GeoSansLight', sans-serif;
+<!-- <div class="container" style="font-family: 'GeoSansLight', sans-serif;
             font-weight: 300;
             text-align: center;
             color: white;
@@ -15,6 +15,14 @@ Turn this screen into a news feed of recent article and url uploads
   <script type="text/javascript" src="http://www.feedsweep.com/Products/FeedSweep/Producer.aspx?feeds=http%3a%2f%2fwww.quotesdaddy.com%2ffeed%2ftagged%2fInspirational&amp;maxoutput=1&amp;datesort=descending&amp;notitle=true&amp;displayheadlines=false&amp;displaydates=false&amp;articlelink=false&amp;launchinnewwindow=false&amp;cat=7&amp;implementation=divs&amp;feedsweepclassname=quote-container&amp;bodyclassname=quote-container&amp;includexmlbutton=false&amp;key=7yzFwXGhOkSJnWBHaKUV0A&amp;ver=5.0.1.0"></script>
 </div>
 <script type="text/javascript" src="http://www.azquotes.com/widgets/link/qu_c_t.js"></script>
-<small><i><a href="http://www.azquotes.com/quote_of_the_day.html" target="_blank">more Quotes</a></i></small>
+<small><i><a href="http://www.azquotes.com/quote_of_the_day.html" target="_blank">more Quotes</a></i></small> -->
+<div class = "container">
+  <li><label>Quote Content</label><input type = "text" ng-model="quote.content"/></li>
+  <li><label>Quote Author</label><input type = "text" ng-model="quote.author"/></li>
+  <li><button type = "submit" ng-click="addQuote(quote)">Add Quote</button></li>
+</div>
+<div class = "container">
+  Use a carousel to cycle through quotes
+</div>
 
 <h1>Does this show up?</h1>
