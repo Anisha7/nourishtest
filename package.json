@@ -87,7 +87,9 @@
     "xmlhttprequest": "~1.8.0",
     "cheerio": "~0.22.0",
     "request": "~2.79.0",
-    "mongoskin": "~2.1.0"
+    "mongoskin": "~2.1.0",
+    "imagemin-pngquant": "~5.0.0"
+
   },
   "devDependencies": {
     "coveralls": "~2.11.6",
