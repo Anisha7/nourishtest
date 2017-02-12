@@ -34,6 +34,8 @@
     }
   },
   "devDependencies": {
+    "angular-bootstrap-calendar": "~0.28.0",
+    "moment": "^2.17.1",
     "ui-router-extras": "^0.1.3"
   }
 }
