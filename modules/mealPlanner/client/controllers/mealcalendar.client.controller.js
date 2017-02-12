@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('mealPlanner', ['mwl.calendar'])
+    .module('mealPlanner')
     .factory('alert',Factory)
     .controller('MealCalendarController', MealCalendarController);
 
