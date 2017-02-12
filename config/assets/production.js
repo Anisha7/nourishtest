@@ -26,6 +26,7 @@ module.exports = {
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/angular-bootstrap-calendar-master/dist/js/angular-bootstrap-calendar-tpls.min.js'
         'public/lib/moment-develop/moment.js',
+        'public/lib/angular-bootstrap-calendar-master/dist/js/angular-bootstrap-calendar-tpls.js'
 
         // endbower
       ]
