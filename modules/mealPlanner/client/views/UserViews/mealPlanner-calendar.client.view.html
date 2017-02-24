@@ -77,7 +77,7 @@
     <div ng-repeat= "upcoming in vm.events" class="list-group-item">
        Meal: {{upcoming.title}}
        When: {{upcoming.startsAt}}
-       completed: <input type="checkbox" ng-click="vm.events.splice($index,1);"/>
+       completed: <input type="checkbox" ng-click="completedMeal($index)"/>
     </div>
   </div>
 </div>

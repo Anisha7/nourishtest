@@ -148,7 +148,8 @@
 
     };
     $scope.completedMeal = function(index){
-      
+      vm.events.splice(index,1);
+      alert('please rate your meal');
     }
 
   }
