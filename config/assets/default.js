@@ -10,7 +10,10 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
-        'public/lib/angular-bootstrap-calendar-master/dist/css/angular-bootstrap-calendar.min.css'
+        'public/lib/angular-bootstrap-calendar-master/dist/css/angular-bootstrap-calendar.min.css',
+        'public/lib/startbootstrap-simple-sidebar-master/css/simple-sidebar.css',
+        'public/lib/angular-ui-bootstrap/dist/ui-bootstrap-csp.css',
+        'public/lib/jasny-bootstrap/css/jasny-bootstrap.min.css'
         // endbower
       ],
       js: [
@@ -27,7 +30,10 @@ module.exports = {
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/ui-router-extras/release/ct-ui-router-extras.js',
         'public/lib/moment-develop/moment.js',
-        'public/lib/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js'
+        'public/lib/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js',
+        'public/lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib/jasny-bootstrap/js/jasny-bootstrap.js'
 
 
         // endbower

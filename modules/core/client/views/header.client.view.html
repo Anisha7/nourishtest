@@ -1,53 +1,220 @@
+<!--
 <div class="container" ng-controller="HeaderController as vm">
-  <nav class-"navbar navbar-custom navbar-fixed-top navbar-default ">
-  <div class="navbar-header" >
-    <button class="navbar-toggle" type="button" ng-click="vm.isCollapsed = !vm.isCollapsed">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a ui-sref="home" class="navbar-brand" ng-hide="vm.authentication.user">Nourish</a>
-    <a ui-sref="userHome" class="navbar-brand" ng-show="vm.authentication.user">Nourish</a>
-  </div>
-  <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
-    <ul class="nav navbar-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);">
-      <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
-        <a ng-switch-when="dropdown" class="dropdown-toggle" uib-dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
-        <ul ng-switch-when="dropdown" class="dropdown-menu">
-          <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(vm.authentication.user);">
-            <a ui-sref="{{subitem.state}}({{subitem.params}})" ng-bind="subitem.title"></a>
-          </li>
-        </ul>
-        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
-      <li ui-sref-active="active">
-        <a ui-sref="authentication.signup">Sign Up</a>
-      </li>
-      <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Sign In</a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
-      <li class="dropdown" uib-dropdown>
-        <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
-          <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
-          <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu" role="menu">
-          <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
-            <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="/api/auth/signout" target="_self">Signout</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+  <button ng-click = "vm.isCollapsed=!vm.isCollapsed">Toggle Menu</button><br>
+
+  <nav class-"sidebar-nav">
+    <div class="row" >
+      <button class="navbar-toggle" type="button" ng-click="vm.isCollapsed = !vm.isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a ui-sref="home" class="navbar-brand" ng-hide="vm.authentication.user">Nourish</a>
+      <a ui-sref="userHome" class="navbar-brand" ng-show="vm.authentication.user">Nourish</a>
+    </div>
+    <br>
+    <nav class="horizontal-collapse row" horizontal uib-collapse="!vm.isCollapsed" role="navigation">
+      <ul  ng-if="vm.menu.shouldRender(vm.authentication.user);">
+        <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
+          <a ng-switch-when="dropdown" class="dropdown-toggle" uib-dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
+          <ul ng-switch-when="dropdown" class="dropdown-menu">
+            <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(vm.authentication.user);">
+              <a ui-sref="{{subitem.state}}({{subitem.params}})" ng-bind="subitem.title"></a>
+            </li>
+          </ul>
+          <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
+        </li>
+      </ul>
+      <ul  ng-hide="vm.authentication.user">
+        <li ui-sref-active="active">
+          <a ui-sref="authentication.signup">Sign Up</a>
+        </li>
+        <li class="divider-vertical"></li>
+        <li ui-sref-active="active">
+          <a ui-sref="authentication.signin">Sign In</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">
+        <li class="dropdown" uib-dropdown>
+          <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
+            <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
+            <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
+              <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/api/auth/signout" target="_self">Signout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </nav>
-</nav>
-</div>
+</div> -->
+<!-- <div class="navmenu navmenu-default navmenu-fixed-left ">
+      <a class="navmenu-brand" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">Nourish</a>
+      <ul class="nav navmenu-nav">
+        <li>before</li>
+        <li><button type="button"  data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">Button</button></li>
+        <li>after</li>
+        <li><a href="../navmenu/">Slide in</a></li>
+        <li><a href="../navmenu-push/">Push</a></li>
+        <li class="active"><a href="./">Reveal</a></li>
+        <li><a href="../navbar-offcanvas/">Off canvas navbar</a></li>
+      </ul>
+      <ul class="nav navmenu-nav">
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a><button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
+          button
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu navmenu-nav">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="canvas">
+      <div class="">
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+    </div> -->
+
+    <!-- <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+          <a class="navmenu-brand" href="#">Project name</a>
+          <ul class="nav navmenu-nav">
+            <li><a href="../navmenu/">Slide in</a></li>
+            <li class="active"><a href="./">Push</a></li>
+            <li><a href="../navmenu-reveal/">Reveal</a></li>
+            <li><a href="../navbar-offcanvas/">Off canvas navbar</a></li>
+          </ul>
+          <ul class="nav navmenu-nav">
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu navmenu-nav">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="navbar navbar-default navbar-fixed-top">
+          <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div> -->
+
+
+        <div class="navmenu navmenu-default navmenu-fixed-left offcanvas" ng-controller="HeaderController as vm">
+          <!-- <nav class-"navbar navbar-custom navbar-fixed-top navbar-default "> -->
+          <!-- <div class="navbar-header" >
+            <button class="navbar-toggle" type="button" ng-click="vm.isCollapsed = !vm.isCollapsed">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button> -->
+            <a ui-sref="home" class="navmenu-brand" ng-hide="vm.authentication.user">Nourish</a>
+            <a ui-sref="userHome" class="navmenu-brand" ng-show="vm.authentication.user">Nourish</a>
+          <!-- </div> -->
+          <!-- <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation"> -->
+          <ul class="nav navmenu-nav" ng-hide="vm.authentication.user">
+            <li ui-sref-active="active">
+              <a ui-sref="authentication.signup">Sign Up</a>
+            </li>
+            <li class="divider-vertical"></li>
+            <li ui-sref-active="active">
+              <a ui-sref="authentication.signin">Sign In</a>
+            </li>
+          </ul>
+          <ul class="nav navmenu-nav" ng-show="vm.authentication.user">
+            <li class="dropdown" uib-dropdown>
+              <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
+                <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
+                <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
+                  <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="/api/auth/signout" target="_self">Signout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navmenu-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);">
+            <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
+              <a ng-switch-when="dropdown" class="dropdown-toggle" uib-dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
+
+              <ul ng-switch-when="dropdown" class="navmenu-nav dropdown-menu">
+                <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(vm.authentication.user);">
+                  <a ui-sref="{{subitem.state}}({{subitem.params}})" ng-bind="subitem.title"></a>
+                  <li class="divider"></li>
+                </li>
+
+              </ul>
+
+              <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
+            </li>
+
+          </ul>
+          <!-- <ul class="dropdown nav navmenu-nav">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu navmenu-nav dropdown">
+              <li><a href="#">Action</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </ul> -->
+
+
+          <!-- </nav> -->
+        <!-- </nav> -->
+        </div>
+        <div class="navbar navbar-default navbar-fixed-top">
+          <button type="button" class="navbar-toggle sidebar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>

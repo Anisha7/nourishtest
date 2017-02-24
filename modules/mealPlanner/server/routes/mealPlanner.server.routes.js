@@ -19,8 +19,8 @@ module.exports = function (app) {
   app.route('/api/recipes')
     .get(browse.listRecipeUrl)
     .post(browse.addRecipeUrl);
-  app.route('/api/edamam')
-
+  app.route('/api/edamam') //use edamam for testing purposes
+    .post(edamam.calculator)
     .get(edamam.edamam);
 
   app.route('/api/mealPlanner')

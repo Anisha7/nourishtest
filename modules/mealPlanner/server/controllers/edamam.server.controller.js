@@ -10,6 +10,7 @@ var path = require('path'),
   // ar _ = require('lodash');
   // var jwt = require('jsonwebtoken');
   // var bcrypt = require('bcryptjs');
+  fda = require('fda-nutrient-database'),
   request = require('request'),
   http = require('http'),
   Q = require('q'),
@@ -140,4 +141,8 @@ exports.listRecipes= function(req, res){
   .catch(function(err){
     res.status(404);
   })
+}
+exports.calculator = function(req,res){
+  console.log(fda.abbreviated('cb'));
+  res.status(200);
 }

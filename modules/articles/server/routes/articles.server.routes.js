@@ -30,7 +30,7 @@ module.exports = function (app) {
     .put(articles.testArticleUpdate);// Through the update method, route to add comment/edit article content
 
   app.route('/api/articlesearch').all(articlesPolicy.isAllowed) //dont forget to update policies
-    .get(articles.testList);
+    .get(articles.testSearch);
 
   app.route('/api/url').all(articlesPolicy.isAllowed)
     .get(articles.listUrls)

@@ -332,18 +332,19 @@ exports.testList = function(req, res){
 exports.testSearch = function(req, res){ //parse the test article data base for articles matching search values
   // console.log(req);
   console.log('in search');
-  // console.log(req.query.searchValue);
+  // console.log(req.query);
   var regex = ".*"+req.query.searchValue+".*";
-  // TestArticle.find({$or: [{"title":{$regex:regex} },{"tags": {$regex: regex} }]}).sort('created').populate('user','displayName').exec(function(err,articles){
-  //     if(err){
-  //       console.log(err);
-  //       res.status(200);
-  //     }
-  //     else{
-  //       console.log(articles);
-  //       res.status(200);
-  //     }
-  // });
+  console.log(regex);
+  TestArticle.find({$or: [{"title":{$regex:regex, $options: '-i'} },{"tags": {$regex: regex, $options: '-i'} }]}).sort('created').populate('user','displayName').exec(function(err,articles){
+      if(err){
+        console.log(err);
+        res.status(200);
+      }
+      else{
+        console.log(articles);
+        res.json(articles);
+      }
+  });
 }
 /**
  * Article middleware

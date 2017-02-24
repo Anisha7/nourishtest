@@ -60,5 +60,13 @@
         alert('error');
       });
     }
+    $scope.testFDAdb = function(){
+      $http.post('/api/edamam').success(function(data){
+
+      })
+      .error(function(err){
+        console.log(err);
+      })
+    }
   }
 }());

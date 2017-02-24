@@ -1,6 +1,5 @@
-.content {
-  margin-top: 50px;
-}
+
+
 .undecorated-link:hover {
   text-decoration: none;
 }
@@ -42,7 +41,7 @@ a:hover .header-profile-image {
   display: inline;
 }
 .dropdown:hover .dropdown-menu {
-      display: block;
+      /*display: block;*/
 }
 body {
   /*background: url(../img/nourishhome.jpg) no-repeat bottom center scroll;
@@ -50,30 +49,34 @@ body {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;*/
+  width:100%;
+  height:100%;
+  background: url(../img/nourishhome.jpg) ;
+  /*background-size:cover;*/
   background-color:red;
+  display:inline;
 
 }
-.content{
+/*.content{
   width:100%;
   height:700px;
   background: url(../img/nourishhome.jpg);
   background-size:cover;
-  /*background-color:red;*/
-}
-#views{
-  background-color:grey;
-  z-index:100;
-}
+}*/
+
+
 .intro {
   /*display: table;*/
   /*width: 100%;
   height: 100%;*/
-  /*margin-top:;*/
+  margin-top: 17%;
+  /*margin:0 auto;*/
   /*padding: 100px 0;*/
   z-index: 100;
   text-align: center;
   color: white;
   background-size: cover;
+  background: rgba(76, 175, 80, 0.3);
   /*background: url(../img/nourishhome.jpg) no-repeat bottom center scroll;*/
   /*background-color: black;*/
   -webkit-background-size: cover;
@@ -98,4 +101,211 @@ body {
 }*/
 .navbar-collapse{
   background-color:white;
+}
+.content {
+  /*margin-top: 50px;*/
+  position:relative;
+  width:100%;
+  margin-left:0;
+  margin-right:0;
+  /*padding-left:10%;*/
+  /*z-index:10;*/
+}
+#views{
+  /*background: rgba(76, 175, 80, 0.3);*/
+  background: rgba(76, 175, 80, 0.3);
+  margin:0 auto;
+  /*margin-top:15%;*/
+  width:75%;
+  height:100%;
+  /*opacity:.5;*/
+  z-index=-1;
+  /*position:relative;*/
+  /*position:absolute;*/
+  /*z-index:100;*/
+}
+.intro-brand{
+  /*opacity:1;
+  z-index:5;*/
+}
+
+.horizontal-collapse {
+    height: 70px;
+  }
+
+sidebar-wrapper {
+    z-index: 100;
+    background-color:white;
+    /*position: relative;*/
+    /*padding-right:10%;*/
+    margin-right:-5em; /* the width of the navigation item*/
+width: 5em;
+float:left;
+position:relative; /* needed for IE 6 */
+    height: 100%;
+    width:auto;
+    background-color:green;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+}
+
+.sidebar-nav {
+    position: relative;
+    top: 0;
+    width: 50%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display:inline-block;
+}
+/*.navbar-toggle {
+  float: left;
+  margin-left: 15px;
+}*/
+
+.navmenu {
+  z-index: 1;
+}
+
+.canvas {
+  position: relative;
+  left: 0;
+  z-index: 2;
+  min-height: 100%;
+  padding: 50px 0 0 0;
+  /*background: #fff;*/
+}
+
+@media (min-width: 0px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0;
+  }
+  .navbar {
+    right: auto;
+    background: none;
+    border: none;
+  }
+  .canvas {
+    padding: 0;
+  }
+}
+
+/*ARTICLES CSS*/
+
+.custom-Articles{
+  background:rgba(230, 225, 193, 1);
+  width:90vw;
+  height:100%;
+  margin-top:-1.1%;
+  margin-left:-12%;
+}
+
+.articles-nav{
+  /*margin-top:5%;*/
+  padding-top:2%;
+  width:100%;
+  opacity:.5;
+  border-bottom: 1px solid grey;
+  /*background-color:none;*/
+}
+
+.articles-navbar{
+  text-align:center;
+  width:100%;
+}
+.articles-ul{
+  text-align:center;
+  width:100%;
+  /*margin: 10px 0;
+	padding: 2px;*/
+  /*padding-left:10%;*/
+}
+.articles-navValue{
+  padding-left:10%;
+  /*padding-right:%;*/
+  display:inline-block;
+  /*border-right:1px solid black;*/
+}
+.list-group{
+  /*height:70%;*/
+  /*background-color:red;*/
+  /*position:relative;*/
+  /*overflow: scroll;*/
+  /*padding:10px;*/
+  /*height:70vh;*/
+}
+.article-group{
+  height:68vh;
+  /*background-color:red;*/
+  /*margin-top:15px;*/
+  /*height:100vh;*/
+  /*height:300px;*/
+  /*border-radius: 25px;*/
+  overflow: scroll;
+  /*height:300px;*/
+
+
+}
+.list-group-item{
+
+    border-radius: 25px;
+    -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+    background: #73AD21;
+    padding: 20px;
+    width: 50%;
+    height: 200px;
+    margin-left:5%;
+    margin-top:50px;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+
+}
+/*manages title of article*/
+.article-container{
+  border-radius:25px;
+  width:90%;
+  margin-top:40%;
+  height:20%;
+  border:1px solid #000;
+  background: rgba(139, 146, 145, 0.75);
+  text-align: center;
+  margin-left:5%;
+  /*opacity:.5;*/
+
+}
+/*manages details of article on right*/
+.article-info-container{
+  margin-top:10%;
+  text-align: center;
+
+}
+#outer {
+    border-radius:25px;
+    width:70%;
+    height:275px;
+    margin:auto;
+    margin-top:20px;
+    margin-left:10%;
+    border:1px solid #000;
+    /*background: url('http://verymarta.com/wp-content/uploads/2013/08/food-illustration-watercolor-marta-spendowska.jpg');*/
+    /*overflow:hidden;*/
+    background: url(../img/ArticleImagePlaceHolder.jpg) no-repeat top center scroll;
+    background-size: cover;
+    /*background: url(../img/nourishhome.jpg) no-repeat bottom center scroll;*/
+}
+#inner1 {
+    background:#FFF;
 }

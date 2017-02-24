@@ -28,6 +28,7 @@
       .error(function(err){
         console.log('error');
       });
+      $scope.searched = false;
       // $scope.$state=$state;
       // console.log($state)
     }
@@ -48,19 +49,32 @@
     }
     $scope.customArticleSearch = function(value){
       console.log(value + $scope.customArticleSearchValue);
-      $http.get('/api/articlesearch').success(function(data){
+      $http.get('/api/articlesearch', {params:{searchValue: $scope.customArticleSearchValue}}).success(function(data){
          console.log('success');
+         if (data){
+           vm.articles= data;
+         }
+         $scope.customArticleSearchValue = '';
+         $scope.searched=!$scope.searched;
 
       })
       .error(function(err){
+          console.log('in error');
           console.log(err);
       });
+
       // $http.get('/api/testArticles/search',{params:{searchValue:value}}).success(function(data){
       //   vm.articles=data;
       // })
       // .error(function(err){
       //   console.log('error');
       // })
+    }
+    $scope.reloadPage = function(){
+      init();
+    }
+    $scope.alert = function(text){
+      alert(text);
     }
     function formVerification(){
       //modify a directive to target specific errors and filter the type in the controller
