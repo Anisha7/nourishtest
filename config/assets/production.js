@@ -10,6 +10,9 @@ module.exports = {
         'public/lib/angular-ui-notification/dist/angular-ui-notification.min.css',
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+        'public/lib/startbootstrap-simple-sidebar-master/css/simple-sidebar.css',
+        'public/lib/angular-ui-bootstrap/dist/ui-bootstrap-csp.css',
+        'public/lib/jasny-bootstrap/css/jasny-bootstrap.min.css'
         // endbower
       ],
       js: [
@@ -27,6 +30,9 @@ module.exports = {
         'public/lib/ui-router-extras/release/ct-ui-router-extras.js',
         'public/lib/moment-develop/moment.js',
         'public/lib/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js',
+        'public/lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib/jasny-bootstrap/js/jasny-bootstrap.js'
         // 'public/lib/angular/angular.min.js',
         // 'public/lib/angular-animate/angular-animate.min.js',
         // 'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',

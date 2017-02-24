@@ -147,6 +147,9 @@
       }
 
     };
+    $scope.completedMeal = function(index){
+      
+    }
 
   }
 }());
