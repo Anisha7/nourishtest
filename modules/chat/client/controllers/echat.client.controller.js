@@ -14,6 +14,7 @@
     vm.messageText = '';
     vm.sendMessage = sendMessage;
     $scope.onlineUsers = [];
+    vm.user=Authentication.user;
 
     init();
 
@@ -30,7 +31,8 @@
 
       // Add an event listener to the 'chatMessage' event
       Socket.on('chatMessage', function (message) {
-        vm.messages.unshift(message);
+        // vm.messages.unshift(message);
+        vm.messages.push(message);
       });
 
       // Remove the event listener when the controller instance is destroyed
@@ -58,6 +60,9 @@
     }
     function startChat(){
       //create secure chat room
+    }
+    $scope.addFriend= function(userName){
+
     }
   }
 }());

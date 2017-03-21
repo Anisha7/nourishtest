@@ -1,80 +1,90 @@
 Add to Calendar
 <div class= "container" style = "overflow: scroll;">
-  <td>
-    <input
-      type="text"
-      class="form-control"
-      ng-model="event.title"
-      value= "event"
-      placeholder="{{currentRecipeView.recipe.title}}"
-      readonly>
-  </td>
-  <!-- <td>
-    <input class="form-control" colorpicker type="text" ng-model="event.color.primary">
-  </td>
-  <td>
-    <input class="form-control" colorpicker type="text" ng-model="event.color.secondary">
-  </td> -->
-  <td>
-    <p class="input-group" style="max-width: 250px">
+  <button ng-click="newEvent=!newEvent">Create New Event</button>
+  <button>Reset Event</button>
+  <button ng-click="currentEvent=!currentEvent">Add to Current Event</button>
+  <div ng-show= "currentEvent" class="container">
+    Upcoming Events:
+  </div>
+  <div ng-show="newEvent" class="container">
+
+    <td>
+      <label>Event Name:</label><input type="text" class="form-control"/>
       <input
         type="text"
         class="form-control"
-        readonly
-        uib-datepicker-popup="dd MMMM yyyy"
+        ng-model="event.title"
+        value= "event"
+        placeholder="{{currentRecipeView.recipe.title}}"
+        readonly>
+    </td>
+    <!-- <td>
+      <input class="form-control" colorpicker type="text" ng-model="event.color.primary">
+    </td>
+    <td>
+      <input class="form-control" colorpicker type="text" ng-model="event.color.secondary">
+    </td> -->
+    <td>
+      <p class="input-group" style="max-width: 250px">
+        <input
+          type="text"
+          class="form-control"
+          readonly
+          uib-datepicker-popup="dd MMMM yyyy"
+          ng-model="event.startsAt"
+          is-open="event.startOpen"
+          close-text="Close" >
+        <span class="input-group-btn">
+          <button
+            type="button"
+            class="btn btn-default"
+            ng-click="vm.toggle($event, 'startOpen', event)">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </button>
+        </span>
+      </p>
+      <div
+        uib-timepicker
         ng-model="event.startsAt"
-        is-open="event.startOpen"
-        close-text="Close" >
-      <span class="input-group-btn">
-        <button
-          type="button"
-          class="btn btn-default"
-          ng-click="vm.toggle($event, 'startOpen', event)">
-          <i class="glyphicon glyphicon-calendar"></i>
-        </button>
-      </span>
-    </p>
-    <div
-      uib-timepicker
-      ng-model="event.startsAt"
-      hour-step="1"
-      minute-step="15"
-      show-meridian="true">
-    </div>
-  </td>
-  <td>
-    <p class="input-group" style="max-width: 250px">
-      <input
-        type="text"
-        class="form-control"
-        readonly
-        uib-datepicker-popup="dd MMMM yyyy"
+        hour-step="1"
+        minute-step="15"
+        show-meridian="true">
+      </div>
+    </td>
+    <td>
+      <p class="input-group" style="max-width: 250px">
+        <input
+          type="text"
+          class="form-control"
+          readonly
+          uib-datepicker-popup="dd MMMM yyyy"
+          ng-model="event.endsAt"
+          is-open="event.endOpen"
+          close-text="Close">
+        <span class="input-group-btn">
+          <button
+            type="button"
+            class="btn btn-default"
+            ng-click="vm.toggle($event, 'endOpen', event)">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </button>
+        </span>
+      </p>
+      <div
+        uib-timepicker
         ng-model="event.endsAt"
-        is-open="event.endOpen"
-        close-text="Close">
-      <span class="input-group-btn">
-        <button
-          type="button"
-          class="btn btn-default"
-          ng-click="vm.toggle($event, 'endOpen', event)">
-          <i class="glyphicon glyphicon-calendar"></i>
-        </button>
-      </span>
-    </p>
-    <div
-      uib-timepicker
-      ng-model="event.endsAt"
-      hour-step="1"
-      minute-step="15"
-      show-meridian="true">
-    </div>
-  </td>
-  <td>
-    <!-- <button
-      class="btn btn-danger"
-      ng-click="vm.events.splice($index, 1)">
-      Delete
-    </button> -->
-    <button class="btn" ng-click="saveToCalendar(event)">Save</button>
-  </td>
+        hour-step="1"
+        minute-step="15"
+        show-meridian="true">
+      </div>
+    </td>
+    <td>
+      <!-- <button
+        class="btn btn-danger"
+        ng-click="vm.events.splice($index, 1)">
+        Delete
+      </button> -->
+      <button class="btn" ng-click="saveToCalendar(event)">Save</button>
+    </td>
+  </div>
 </div>

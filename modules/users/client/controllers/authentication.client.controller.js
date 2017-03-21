@@ -86,7 +86,26 @@
       //redirect to userlogged in home
       // $state.go($state.previous.state.name || 'home', $state.previous.params);
       // console.log($state.previous.params);
-      $state.go('userHome', $state.previous.params);
+
+      //Here after sign in success, decide which page to route to based on the user type
+      console.log(vm.authentication.user);
+      switch(vm.authentication.user.roles[0]){
+
+        case 'admin':
+          console.log('admin');
+          $state.go('adminHome', $state.previous.params);
+          break;
+        case 'user':
+          console.log('user');
+          $state.go('userHome.mainView', $state.previous.params);
+          break;
+        case 'healthManager':
+          console.log('healthManager');
+          $state.go('healthManagerHome', $state.previous.params);
+          break;
+        default: console.log('error');
+      }
+
 
     }
 

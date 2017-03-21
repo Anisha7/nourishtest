@@ -29,6 +29,7 @@
 
       // Add an event listener to the 'chatMessage' event
       Socket.on('chatMessage', function (message) {
+        console.log(message);
         vm.messages.unshift(message);
       });
 

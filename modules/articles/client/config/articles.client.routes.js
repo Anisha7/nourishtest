@@ -159,6 +159,7 @@
   function getCustomArticle($stateParams, CustomArticlesService)  {
     // console.log ('id: ' +$stateParams.articleId);
     //write custom get method for retrieving articles
+    console.log($stateParams)
     return CustomArticlesService.get({
       customArticleId: $stateParams.customArticleId
     }).$promise;

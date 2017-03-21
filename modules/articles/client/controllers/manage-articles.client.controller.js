@@ -111,8 +111,10 @@
         });
         // $http.post('/api/testArticles',{'articleImages':dataUrl[0]});
     };
-    $scope.viewArticle=function(){
-      $state.go('articles.testView', {'key':'KEYYA'});
+    $scope.viewArticle=function(id){
+      // $state.go('articles.testView', {'key':'KEYYA'});
+      console.log(id);
+      $state.go('myArticles.viewer', {articleId: id});
     }
     function formVerification(){
       //modify a directive to target specific errors and filter the type in the controller

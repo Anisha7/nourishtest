@@ -51,7 +51,8 @@ body {
   -o-background-size: cover;*/
   width:100%;
   height:100%;
-  background: url(../img/nourishhome.jpg) ;
+  background: url(../img/NourishAlphaBackground.jpg) ;
+  background-size: cover;
   /*background-size:cover;*/
   background-color:red;
   display:inline;
@@ -69,26 +70,47 @@ body {
   /*display: table;*/
   /*width: 100%;
   height: 100%;*/
-  margin-top: 17%;
+  margin-top: 21%;
+  margin-left:35%;
   /*margin:0 auto;*/
   /*padding: 100px 0;*/
-  z-index: 100;
+  /*z-index: 100;*/
   text-align: center;
   color: white;
-  background-size: cover;
-  background: rgba(76, 175, 80, 0.3);
+  /*background-size: cover;*/
+  position:absolute;
+  width: 385px;
+  height: 148px;
+  background-color: #F9F9F9;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.24);
+  border: 1px;
   /*background: url(../img/nourishhome.jpg) no-repeat bottom center scroll;*/
   /*background-color: black;*/
-  -webkit-background-size: cover;
+  /*-webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
+  -o-background-size: cover;*/
 }
 .intro .intro-body .brand-heading {
-  font-size: 40px;
+  /*font-size: 40px;*/
 }
 .intro .intro-body .intro-text {
-  font-size: 18px;
+  /*font-size: 18px;*/
+}
+.intro-body{
+  /*margin-right:1000%;*/
+
+  /*border-radius:25px;*/
+  /*margin-left:40%;*/
+
+}
+.intro-brand-heading{
+  font-family: BrandleyHandITC;
+  font-size: 60px;
+  z-index:10;
+  margin-top:10%;
+  /*padding: 0;*/
 }
 /*.navbar-custom {
 
@@ -113,13 +135,13 @@ body {
 }
 #views{
   /*background: rgba(76, 175, 80, 0.3);*/
-  background: rgba(76, 175, 80, 0.3);
+  /*background: rgba(76, 175, 80, 0.3);*/
   margin:0 auto;
   /*margin-top:15%;*/
   width:100%;
   height:100%;
   /*opacity:.5;*/
-  z-index=-1;
+  /*z-index=-1;*/
   /*position:relative;*/
   /*position:absolute;*/
   /*z-index:100;*/
@@ -167,6 +189,7 @@ position:relative; /* needed for IE 6 */
   margin-left: 15px;
 }*/
 
+/******MANAGES HEADER NAV ******/
 .navmenu {
   z-index: 1;
 }
@@ -200,28 +223,75 @@ position:relative; /* needed for IE 6 */
   }
 }
 
+.navmenuCSS{
+  text-align:center;
+}
+
+.navmenu-brand{
+  font-family: BradleyHandITC;
+  font-size: 35px;
+}
+.navMenuElements{
+  font-family: BondoniMt;
+  font-size: 25px;
+}
+
+/*AUTHENTICATION CSS*/
+
+.authentication {
+  background-color: rgba(243, 236, 225, 0.5);
+  height: 110vh;
+  width: 100%;
+
+}
+.signup-brand{
+  margin-top:10%;
+  font-family: Segue;
+  font-size:60px
+}
+/*Manages Signin*/
+.authentication-brand{
+  margin-top:10%;
+  font-family: Segue;
+  font-size:60px
+}
+.signin-body{
+  /*background-color: green;*/
+  margin-top:3%;
+  z-index:10;
+}
+
 /*ARTICLES CSS*/
 
 .custom-Articles{
-  background:rgba(230, 225, 193, 1);
-  width:90vw;
-  height:100%;
+  /*background:rgba(230, 225, 193, 1);*/
+  background-color: #F3ECE1;
+  /*width:90vw;
+  /*height:100%;*/
   margin-top:-1.1%;
   margin-left:5%;
+  font-family: Adobe Song Std;
+
 }
 
 .articles-nav{
   /*margin-top:5%;*/
-  padding-top:2%;
+  /*position:fixed;*/
+  /*padding-top:2%;*/
   width:100%;
-  opacity:.5;
-  border-bottom: 1px solid grey;
+  font-color: black;
+  background-color:#e8dac5;
+  z-index: 100;
+  background-color:
+  /*opacity:.5;*/
+  /*border-bottom: 1px solid grey;*/
   /*background-color:none;*/
 }
 
 .articles-navbar{
   text-align:center;
   width:100%;
+  position: absolute;
 }
 .articles-ul{
   text-align:center;
@@ -233,8 +303,15 @@ position:relative; /* needed for IE 6 */
 .articles-navValue{
   padding-left:10%;
   /*padding-right:%;*/
-  display:inline-block;
+  /*display:inline-block;*/
   /*border-right:1px solid black;*/
+}
+.articles-container{
+  height: 100%;
+  overflow-y: scroll;
+  margin-top:%;
+  /*display:flex;*/
+  /*align-items: stretch;*/
 }
 .list-group{
   /*height:70%;*/
@@ -245,13 +322,14 @@ position:relative; /* needed for IE 6 */
   /*height:70vh;*/
 }
 .article-group{
-  height:68vh;
+  /*height:68vh;*/
   /*background-color:red;*/
   /*margin-top:15px;*/
   /*height:100vh;*/
   /*height:300px;*/
   /*border-radius: 25px;*/
-  overflow: scroll;
+
+  overflow-x:hidden;
   /*height:300px;*/
 
 
@@ -270,36 +348,49 @@ position:relative; /* needed for IE 6 */
     overflow: hidden;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;*/
-
-
 }
 /*manages title of article*/
 .article-container{
   border-radius:25px;
-  width:90%;
+  /*width:90%;*/
+  width: 624px;
   margin-top:40%;
-  height:20%;
-  border:1px solid #000;
-  background: rgba(139, 146, 145, 0.75);
+  /*height:20%;*/
+  height: 44px;
+  border:0px solid #95989A;
+  background: rgba(139, 146, 145, 0.45);
   text-align: center;
-  margin-left:5%;
-  /*opacity:.5;*/
+  margin-left:2%;
+  opacity:.55;
 
 }
 /*manages details of article on right*/
 .article-info-container{
-  margin-top:10%;
+  margin-top:15%;
   text-align: center;
+  margin-right:45%;
 
 }
-#outer {
+.articleBubbleTitle:hover{
+  opacity:1;
+}
+.articleBubbleTitle{
+  font-size:35px;
+  /*margin-bottom:50px;*/
+  opacity:2;
+  z-index:1;
+
+}
+.outerArticleBubble{
     border-radius:25px;
-    width:70%;
-    height:275px;
+    /*width:70%;*/
+    width: 647px;
+    /*height:275px;*/
+    height: 353px;
     margin:auto;
     margin-top:20px;
     margin-left:10%;
-    border:1px solid #000;
+    border:0px solid #000;
     /*background: url('http://verymarta.com/wp-content/uploads/2013/08/food-illustration-watercolor-marta-spendowska.jpg');*/
     /*overflow:hidden;*/
     background: url(../img/ArticleImagePlaceHolder.jpg) no-repeat top center scroll;

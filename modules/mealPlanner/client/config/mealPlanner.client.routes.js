@@ -31,7 +31,25 @@
         url: '/calendar',
         templateUrl: '/modules/mealPlanner/client/views/UserViews/mealPlanner-calendar.client.view.html',
         controller: 'MealCalendarController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        sticky: true
+        // resolve: {
+        //   mealEventResolve: getMealEvent
+        // }
+      })
+      .state('userMP.calendarTest.editMealEvent', {
+        url: '/:mealEventId',
+        views: {
+          'editMealEvent': {
+            templateUrl: '/modules/mealPlanner/client/views/UserViews/mealPlanner-editEvent.client.view.html',
+            controller: 'MealEventController', //Be Sure to initialize controller according to previous state maybe
+            controllerAs: 'vm',
+            resolve: {
+              mealEventResolve: getMealEvent
+            }
+          }
+        }
+
       })
       .state('userMP.userBrowse', {
         // abstract: true,
@@ -42,7 +60,7 @@
         sticky: true
       })
       .state('userMP.userBrowse.viewRecipe', { //eventually do the same thing as is in
-        url: '/testingStill',
+        url: '/ModifyEventuallySoThatEachRecipeHasUniqueURL',
         views:{
           'viewRecipeOrSearch': {
             templateUrl: '/modules/mealPlanner/client/views/recipeViews/viewRecipe.client.view.html',
@@ -61,7 +79,12 @@
       })
       .state('userMP.userBrowse.viewRecipe.recipeAddToCalendar', {
         url: '', //eventually this should be,
-        templateUrl: '/modules/mealPlanner/client/views/recipeViews/recipeAddToCalendar.client.view.html'
+        templateUrl: '/modules/mealPlanner/client/views/recipeViews/recipeAddToCalendar.client.view.html',
+        
+      })
+      .state('userMP.userBrowse.viewRecipe.addToList',{
+        url: '',
+        templateUrl: '/modules/mealPlanner/client/views/recipeViews/recipeAddtoList.client.view.html'
       })
       .state('userMP.addRecipe', {
         url: '/addRecipe',
@@ -78,6 +101,23 @@
       // $stickyStateProvider.enableDebug(true);
 
   }
+
+  getMealEvent.$inject = ['$stateParams', 'MealEventService'];
+
+  function getMealEvent($stateParams, MealEventService)  {
+    // console.log ('id: ' +$stateParams.articleId);
+    //write custom get method for retrieving articles
+    console.log('GET MEAL EVENT: '+ $stateParams.mealEventId);
+    if($stateParams.mealEventId){
+
+      return MealEventService.get({
+        mealEventId: $stateParams.mealEventId
+      }).$promise;
+    }
+  }
+
 }());
+
+
 
 //figure out how to set up a condition such that if not logged in, display regular meals page else display the navigatable page

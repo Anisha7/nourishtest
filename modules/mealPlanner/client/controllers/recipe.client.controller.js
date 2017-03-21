@@ -60,6 +60,14 @@
         console.log('error');
       })
     }
+    $scope.getUpcomingEvents = function(){
+      $http.get('/', {params:{user: Authentication.user}}).success(function(data){
+          //display information in drop down select panel
+      })
+      .error(function(err){
+        console.log(err);
+      })
+    }
     vm.toggle = function($event, field, event){
       $event.preventDefault();
       $event.stopPropagation();

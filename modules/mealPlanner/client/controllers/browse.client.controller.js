@@ -18,6 +18,8 @@
     $scope.data=[];
     $scope.temp={};
     $scope.currentRecipeView={};
+    $scope.advancedSearchParams = {};
+    $scope.searchBox = false;
     // console.log(vm.user)
     // if (!vm.user){
     //   console.log('gonna have to do some rerouting');
@@ -46,6 +48,14 @@
     //some code
         });
       // return;
+    }
+
+    $scope.manageAdvancedSearch = function(){
+      $scope.searchBox = !$scope.searchBox;
+      console.log($scope.searchBox);
+    }
+    $scope.conductAdvancedSearch = function(){
+
     }
     $scope.viewMeal=function(recipe){
           // console.log(recipe);

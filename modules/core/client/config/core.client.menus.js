@@ -20,6 +20,15 @@
     });
 
     menuService.addSubMenuItem('account', 'settings', {
+      title: 'My Profile',
+      state: 'userHome.mainView',
+      roles: ['user']
+    })
+    menuService.addSubMenuItem('account', 'settings', {
+      title: 'My Settings',
+      state: 'settings.profile'
+    })
+    menuService.addSubMenuItem('account', 'settings', {
       title: 'Edit Profile',
       state: 'settings.profile'
     });

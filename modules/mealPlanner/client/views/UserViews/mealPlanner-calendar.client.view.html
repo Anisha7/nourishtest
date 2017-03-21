@@ -1,190 +1,191 @@
-<div class="col-lg-8">
+<div class = "meal-calendar-container" style = "background-color:white; height:160vh;">
+  <div class="col-lg-8">
 
-  <h2 class="text-center">{{ vm.calendarTitle }}</h2>
+    <h2 class="text-center">{{ vm.calendarTitle }}</h2>
 
-  <div class="row">
+    <div class="row">
 
-    <div class="col-md-6 text-center">
-      <div class="btn-group">
+      <div class="col-md-6 text-center">
+        <div class="btn-group">
 
-        <button
-          class="btn btn-primary"
-          mwl-date-modifier
-          date="vm.viewDate"
-          decrement="vm.calendarView"
-          ng-click="vm.cellIsOpen = false">
-          Previous
-        </button>
-        <button
-          class="btn btn-default"
-          mwl-date-modifier
-          date="vm.viewDate"
-          set-to-today
-          ng-click="vm.cellIsOpen = false">
-          Today
-        </button>
-        <button
-          class="btn btn-primary"
-          mwl-date-modifier
-          date="vm.viewDate"
-          increment="vm.calendarView"
-          ng-click="vm.cellIsOpen = false">
-          Next
-        </button>
-      </div>
-    </div>
-
-    <br class="visible-xs visible-sm">
-
-    <div class="col-md-6 text-center">
-      <div class="btn-group">
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'" ng-click="vm.cellIsOpen = false">Year</label>
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'" ng-click="vm.cellIsOpen = false">Month</label>
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'" ng-click="vm.cellIsOpen = false">Week</label>
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'" ng-click="vm.cellIsOpen = false">Day</label>
-      </div>
-    </div>
-
-  </div>
-
-  <br>
-  <button ng-click="edit=!edit">Add Event</button>
-  <mwl-calendar
-    events="vm.events"
-    view="vm.calendarView"
-    view-title="vm.calendarTitle"
-    view-date="vm.viewDate"
-    on-event-click="vm.eventClicked(calendarEvent)"
-    on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
-    cell-is-open="vm.cellIsOpen"
-    day-view-start="06:00"
-    day-view-end="22:59"
-    day-view-split="30"
-    cell-modifier="vm.modifyCell(calendarCell)"
-    cell-auto-open-disabled="true"
-    on
-    on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
-  </mwl-calendar>
-
-  <br><br><br>
-</div>
-<div class="col-md-4">
-  <div class="row">
-    <h3>Suggested meals</h3>
-  </div>
-  <div class="row">
-    <h3>Upcoming Events</h3>
-    <div ng-repeat= "upcoming in vm.events" class="list-group-item">
-       Meal: {{upcoming.title}}
-       When: {{upcoming.startsAt}}
-       completed: <input type="checkbox" ng-click="completedMeal($index)"/>
-    </div>
-  </div>
-</div>
-<div class="container" ng-show="edit" style=" position:absolute; width:100%; z-index:100;   background-color:green;">
-  <h3 id="event-editor">
-    Edit events
-    <button
-      class="btn btn-primary pull-right"
-      ng-click="vm.addEvent()">
-      Add new
-    </button>
-    <button class="btn pull-right" ng-click="edit=!edit">close</button>
-    <div class="clearfix"></div>
-  </h3>
-
-  <table class="table table-bordered">
-
-    <thead>
-      <tr>
-        <th>Meal</th>
-        <!-- <th>Primary color</th>
-        <th>Secondary color</th> -->
-
-        <th>Starts at</th>
-        <th>Ends at</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr ng-repeat="event in vm.events track by $index">
-        <td>
-          <input
-            type="text"
-            class="form-control"
-            ng-model="event.title">
-        </td>
-        <!-- <td>
-          <input class="form-control" colorpicker type="text" ng-model="event.color.primary">
-        </td>
-        <td>
-          <input class="form-control" colorpicker type="text" ng-model="event.color.secondary">
-        </td> -->
-        <td>
-          <p class="input-group" style="max-width: 250px">
-            <input
-              type="text"
-              class="form-control"
-              readonly
-              uib-datepicker-popup="dd MMMM yyyy"
-              ng-model="event.startsAt"
-              is-open="event.startOpen"
-              close-text="Close" >
-            <span class="input-group-btn">
-              <button
-                type="button"
-                class="btn btn-default"
-                ng-click="vm.toggle($event, 'startOpen', event)">
-                <i class="glyphicon glyphicon-calendar"></i>
-              </button>
-            </span>
-          </p>
-          <div
-            uib-timepicker
-            ng-model="event.startsAt"
-            hour-step="1"
-            minute-step="15"
-            show-meridian="true">
-          </div>
-        </td>
-        <td>
-          <p class="input-group" style="max-width: 250px">
-            <input
-              type="text"
-              class="form-control"
-              readonly
-              uib-datepicker-popup="dd MMMM yyyy"
-              ng-model="event.endsAt"
-              is-open="event.endOpen"
-              close-text="Close">
-            <span class="input-group-btn">
-              <button
-                type="button"
-                class="btn btn-default"
-                ng-click="vm.toggle($event, 'endOpen', event)">
-                <i class="glyphicon glyphicon-calendar"></i>
-              </button>
-            </span>
-          </p>
-          <div
-            uib-timepicker
-            ng-model="event.endsAt"
-            hour-step="1"
-            minute-step="15"
-            show-meridian="true">
-          </div>
-        </td>
-        <td>
           <button
-            class="btn btn-danger"
-            ng-click="vm.events.splice($index, 1)">
-            Delete
+            class="btn btn-primary"
+            mwl-date-modifier
+            date="vm.viewDate"
+            decrement="vm.calendarView"
+            ng-click="vm.cellIsOpen = false">
+            Previous
           </button>
-          <button class="btn" ng-click="saveEvent(event)">Save</button>
-        </td>
-      </tr>
-    </tbody>
+          <button
+            class="btn btn-default"
+            mwl-date-modifier
+            date="vm.viewDate"
+            set-to-today
+            ng-click="vm.cellIsOpen = false">
+            Today
+          </button>
+          <button
+            class="btn btn-primary"
+            mwl-date-modifier
+            date="vm.viewDate"
+            increment="vm.calendarView"
+            ng-click="vm.cellIsOpen = false">
+            Next
+          </button>
+        </div>
+      </div>
 
-  </table>
+      <br class="visible-xs visible-sm">
+
+      <div class="col-md-6 text-center">
+        <div class="btn-group">
+          <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'" ng-click="vm.cellIsOpen = false">Year</label>
+          <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'" ng-click="vm.cellIsOpen = false">Month</label>
+          <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'" ng-click="vm.cellIsOpen = false">Week</label>
+          <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'" ng-click="vm.cellIsOpen = false">Day</label>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <button ng-click="edit=!edit">Add Event</button>
+    <mwl-calendar
+      events="vm.events"
+      view="vm.calendarView"
+      view-title="vm.calendarTitle"
+      view-date="vm.viewDate"
+      on-event-click="vm.eventClicked(calendarEvent)"
+      on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+      cell-is-open="vm.cellIsOpen"
+      day-view-start="06:00"
+      day-view-end="22:59"
+      day-view-split="30"
+      cell-modifier="vm.modifyCell(calendarCell)"
+      cell-auto-open-disabled="true"
+      on
+      on-timespan-click="vm.timespanClicked(calendarDate, calendarCell)">
+    </mwl-calendar>
+
+    <br><br><br>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <h3>Suggested meals</h3>
+    </div>
+    <div class="row">
+      <h3 ng-click="past=!past">Past Events</h3>
+      <div ng-show="past">List past events for reference? Could have another popup</div>
+    </div>
+    <div class="row">
+      <h3>Upcoming Events</h3>
+      <div ng-repeat= "upcoming in vm.events" class="list-group-item" ui-sref="userMP.calendarTest.editMealEvent({mealEventId: upcoming._id})">
+        <!-- {{upcoming._id}} -->
+        Click object to open edit event page;
+         Meal: {{upcoming.title}}
+         When: {{upcoming.startsAt}}
+         completed: <input type="checkbox" ng-click="completedMeal($index)"/>
+      </div>
+    </div>
+  </div>
+  <div ui-view="editMealEvent"></div>
+  <div ng-show="edit" class="container" style=" position:absolute; height: 75%; width:100%; z-index:100;   background-color:green;">
+    <h3 id="event-editor">
+      Edit events
+      <button
+        class="btn btn-primary pull-right"
+        ng-click="vm.addEvent()">
+        Add new
+      </button>
+      <button class="btn pull-right" ng-click="edit=!edit">close</button>
+      <div class="clearfix"></div>
+    </h3>
+
+    <table class="table table-bordered">
+
+      <thead>
+        <tr>
+          <th>Meal</th>
+          <th>Starts at</th>
+          <th>Ends at</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="event in vm.events track by $index">
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              ng-model="event.title">
+          </td>
+
+          <td>
+            <p class="input-group" style="max-width: 250px">
+              <input
+                type="text"
+                class="form-control"
+                readonly
+                uib-datepicker-popup="dd MMMM yyyy"
+                ng-model="event.startsAt"
+                is-open="event.startOpen"
+                close-text="Close" >
+              <span class="input-group-btn">
+                <button
+                  type="button"
+                  class="btn btn-default"
+                  ng-click="vm.toggle($event, 'startOpen', event)">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+            </p>
+            <div
+              uib-timepicker
+              ng-model="event.startsAt"
+              hour-step="1"
+              minute-step="15"
+              show-meridian="true">
+            </div>
+          </td>
+          <td>
+            <p class="input-group" style="max-width: 250px">
+              <input
+                type="text"
+                class="form-control"
+                readonly
+                uib-datepicker-popup="dd MMMM yyyy"
+                ng-model="event.endsAt"
+                is-open="event.endOpen"
+                close-text="Close">
+              <span class="input-group-btn">
+                <button
+                  type="button"
+                  class="btn btn-default"
+                  ng-click="vm.toggle($event, 'endOpen', event)">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+            </p>
+            <div
+              uib-timepicker
+              ng-model="event.endsAt"
+              hour-step="1"
+              minute-step="15"
+              show-meridian="true">
+            </div>
+          </td>
+          <td>
+            <button
+              class="btn btn-danger"
+              ng-click="vm.events.splice($index, 1)">
+              Delete
+            </button>
+            <button class="btn" ng-click="saveEvent(event)">Save</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
 </div>

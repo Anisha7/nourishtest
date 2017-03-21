@@ -23,6 +23,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/testArticles',
       permissions: '*'
+    },{
+      resources: '/api/testArticles/:customArticleId',
+      permissions: '*'
     }, {
       resources: '/api/articlesearch', //gotta add in conditions for searching...
       permissions: '*'
@@ -38,6 +41,18 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/articles/:articleId',
       permissions: ['get']
+    },{
+      resources: '/api/testArticles',
+      permissions: '*'
+    },{
+      resources: '/api/testArticles/:customArticleId',
+      permissions: ['get']
+    },{
+      resources: '/api/articlesearch', //recently modified
+      permissions: '*'
+    }, {
+      resources: '/api/url',
+      permissions: '*'
     }]
   }, {
     roles: ['guest'],

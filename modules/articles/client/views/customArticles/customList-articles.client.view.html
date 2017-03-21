@@ -1,4 +1,4 @@
-<div class = "custom-Articles">
+<div class = "custom-Articles" style = "height: ">
   <nav class="articles-nav navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -21,7 +21,14 @@
 
         <li class = "articles-navValue"><a href="#">Popular</a></li>
 
-        <li class = "articles-navValue"><a href="#">Search</a></li>
+        <li class = "articles-navValue" style = "margin-top:1%;">
+          <!-- <a href="#">Search</a> -->
+          <input type="text" placeholder= 'search' ng-model="customArticleSearchValue"/><button ng-click="customArticleSearch(customArticleSearchValue)">Search</button>
+          <button ng-show="searched" ng-click = "reloadPage()">Back</button>
+          <!-- <br> -->
+          <!-- Repeat Lists of uploaded articles by user
+          Clicking should take to edit article page rather than viewer -->
+        </li>
 
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -46,16 +53,12 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-  <h4>Custom Articles</h4>
-  <div class="container" style="">
-    <input type="text" ng-model="customArticleSearchValue"/><button ng-click="customArticleSearch(customArticleSearchValue)">Search</button>
-    <button ng-show="searched" ng-click = "reloadPage()">Back</button>
-    <br>
-    Repeat Lists of uploaded articles by user
-    Clicking should take to edit article page rather than viewer
+  <!-- <h4>Custom Articles</h4> -->
+  <div class="articles-container container" style="">
+
     <div class="col-md-12" >
 
-      <div class="list-group" style ="z-index:10;">
+      <!-- <div class="list-group" style =""> -->
         <!--  use ng-click instead of ui-sref to to route to the article view--><br>
         <!-- <a ng-repeat="article in vm.articles" ui-sref="customArticles.view" class="list-group-item"> -->
           <!-- <div > -->
@@ -76,20 +79,20 @@
               <p class="list-group-item-text" ng-bind="article.tags"></p>
             </a> -->
 
-            <div class = "container">
+            <!-- <div class = "container">
                 Preview Info
-            </div>
+            </div> -->
           <!-- </div> -->
-        </div>
-      </div>
+        <!-- </div> -->
+      <!-- </div> -->
       <!-- <div class = "list-group-item">
         content
       </div> -->
-      <div class = 'article-group' style = "margin-top:10%">
+      <div class = 'article-group' style = "">
         <div class= "container " style="" ng-repeat= "article in vm.articles" >
           <div class = "row " style = "">
-            <a class= "col-md-8 " ui-sref="customArticles.view({ customArticleId: article._id })">
-              <div id ="outer" style = "float:left;" style = "">
+            <a class= "col-md-8 " ui-sref="customArticles.view({ customArticleId: article._id })" style = "margin-left:-5%;">
+              <div  class="outerArticleBubble" style = "float:left;" style = "">
                 <!-- <div id="inner1">Rounded Top? No</div>
                 <div id="inner2">No Rounding</div>
                 <div id="inner3">Rounded Bottom? No</div> -->
@@ -103,7 +106,7 @@
                     <span ng-if="!article.user">Deleted User</span>
                 </small> -->
                 <div class = "article-container">
-                  <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
+                  <h4 class="articleBubbleTitle" style="" ng-bind="article.title"></h4>
 
                 </div>
               </div>
@@ -111,8 +114,9 @@
             <!-- </div> -->
             <div class ="col-md-4" style = "float:right;" ng-click = "alert('direct to author page')">
               <div class = "article-info-container">
-                <img style = "background: #f00;width: 125px;  height: 125px;border-radius: 50%;" width="100" height="75" src = "http://previews.123rf.com/images/ateli/ateli1211/ateli121100021/16063756-Watercolor-illustration-of-chef-Stock-Illustration.jpg"/>
-                <li class = "" > Author Info</li>
+                <img style = "background: #f00;width: 128px;  height: 125px;border-radius: 50%;" width="100" height="75" src = "http://previews.123rf.com/images/ateli/ateli1211/ateli121100021/16063756-Watercolor-illustration-of-chef-Stock-Illustration.jpg"/>
+                <br>
+                <li class = "" style = "font-family: Segue UI;"> <span ng-if="article.user" ng-bind="article.user.displayName"></span></li>
                 <small class="list-group-item-text">
                   Posted on
 
@@ -121,9 +125,12 @@
                     <span ng-if="article.user" ng-bind="article.user.displayName"></span>
                     <span ng-if="!article.user">Deleted User</span>
                 </small>
-                <br>
-                <p class="list-group-item-text" ng-bind="article.content"></p>
+                <br><br>
+                <!-- <p class="list-group-item-text" ng-bind="article.content"></p> -->
+
+                <p style = "font-family: Adobe Myungjo Std;">This is where the article description will go after the input form is modifie to have one</p>
                 <p class="list-group-item-text" ng-bind="article.tags"></p>
+                <p>Rating: List overall average, on hover, list doctor/user/admin ratings & number of comments</p>
               </div>
             </div>
             <!-- <div id="outer">
@@ -162,4 +169,6 @@
       <div ui-view="viewCustomArticle"></div>
       <div ng-show="catfuck" ui-view style="border: solid 1px black; position:fixed; height:80%; width:80%; z-index:100;  top:20%;left:10%; background-color:white; overflow:scroll; overflow-x: hidden;"></div>
     </div>
+
+    <button>Next Page</button>
 </div>

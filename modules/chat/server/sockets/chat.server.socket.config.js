@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 function updateOnlineContacts (){
   //function has to broadcast to all online users that x is online

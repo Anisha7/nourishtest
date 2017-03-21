@@ -13,6 +13,7 @@
     <div class="list-group">
       <!--  use ng-click instead of ui-sref to to route to the article view-->
       <a ng-repeat="article in vm.articles" ui-sref="myArticles.viewer({ articleId: article._id })" class="list-group-item">
+      <!-- <a ng-repeat="article in vm.articles" ng-click= "viewArticle(article._id)" class="list-group-item"> -->
         <small class="list-group-item-text">
           Posted on
           <span ng-bind="article.created | date:'mediumDate'"></span>
@@ -21,7 +22,7 @@
           <span ng-if="!article.user">Deleted User</span>
         </small>
         <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
-        <p class="list-group-item-text" ng-bind="article.content"></p>
+        <!-- <p class="list-group-item-text" ng-bind="article.content"></p> -->
       </a>
     </div>
   </div>

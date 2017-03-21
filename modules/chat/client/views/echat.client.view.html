@@ -1,41 +1,126 @@
 <!-- The chat view -->
-<section class="container">
+<section class="container" style="background-color: #F3ECE1; height:100vh;">
   <div class="page-header">
-    <h1>Chat Example</h1>
+    <!-- <h1>Chat Example</h1> -->
+    <!-- <navbar> View Progress, View newsfeed, my photos, my reviews, popular interests, notificatoins</navbar> -->
+        <nav class="navbar navbar-custom  navbar-default " style="border-radius: 5px; background-color:#F3ECE1; margin-top:-3%; margin-bottom:-5%">
+          <div class="container-fluid" style="width:100%; background-color:#F3ECE1; ">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" >
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" >Connect</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="width:100%; background-color:#F3ECE1; ">
+              <ul class="nav navbar-nav navbar-right" style="margin-right:5%; ">
+                <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Doctors</a></li>
+                <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Friends</a></li>
+                <li ng-class="{active: activeTab === 'account'}"><a ui-sref"home">Popular Recipes</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
   </div>
   <!-- The message form -->
-  <div class="col-md-4">
-      Online Contacts<br>
-      Open chat room<button ng-click="startChat">Eventually call startchat(username)</button>
+  <div class="col-md-4" style="margin-left:0px; overflow:scroll; height:80vh;">
+      Contacts<br>
+      <!-- Open chat room<button ng-click="startChat">Eventually call startchat(username)</button> -->
       <div ng-repeat="online in onlineUsers">
 
       </div>
+      <div class="" >
+        <input type="text" style="width:100%; height:25px;border-radius:0px 15px 15px 0px;"ng-model="chatSearch"/>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
+      <div class="list-group-item" style="width:100%; border-radius:0px 15px 15px 0px;">
+        <img style = "background: #f00;width: 48px;  height: 45px;border-radius: 50%;" width="20" height="15"src= "{{vm.user.profileImageURL}}"/>
+        {{vm.user.displayName}}
+        <button ng-click="addFriend">+</button>
+      </div>
       <br>
-      <h5>To Add:</h5>
+      <!-- <h5>To Add:</h5>
       <li> Repeat users who are currently connected to the socket, </li>
       <li> save chat history on window destroy, encrypting using the same method as sending password info</li>
-      <li> to view chat record, have server create key on log in to encrypt sent over information- figure out how to do this securely</li>
+      <li> to view chat record, have server create key on log in to encrypt sent over information- figure out how to do this securely</li> -->
   </div>
-  <form class="col-xs-12 col-md-4" ng-submit="vm.sendMessage();">
-    <fieldset class="row">
-      <div class="input-group">
-        <input type="text" id="messageText" name="messageText" class="form-control" ng-model="vm.messageText" placeholder="Enter new message" autofocus>
-        <span class="input-group-btn">
-          <button type="submit" class="btn btn-primary" ng-disabled="!vm.messageText.length">Submit</button>
-        </span>
-      </div>
-    </fieldset>
-  </form>
-  <ul class="list-unstyled">
-    <!-- List all messages -->
-    <li class="col-xs-12 col-md-offset-4 col-md-4 chat-message" ng-repeat="message in vm.messages">
-      <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
-      <img ng-src="/{{message.profileImageURL}}" alt="{{message.username}}" class="pull-left chat-profile-image" />
-      <div class="pull-left chat-message-details">
-        <strong ng-bind="message.username"></strong>
-        <br>
-        <span ng-bind="message.text"></span>
-      </div>
-    </li>
-  </ul>
+  <div class="col-md-8" style="margin-top:2%;">
+    Lookinto scroll-repeat directive
+    <div class= "row" style="overflow:scroll; height: 70vh;">
+      <ul class="list-unstyled" >
+        <!-- List all messages -->
+        <li class="col-xs-12  col-md-4 chat-message" ng-repeat="message in vm.messages | orderBy: 'date'" style="width:100%;">
+          <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
+          <img ng-src="/{{message.profileImageURL}}" alt="{{message.username}}" class="pull-left chat-profile-image" />
+          <div class="pull-left chat-message-details">
+            <strong ng-bind="message.username"></strong>
+            <br>
+            <span ng-bind="message.text"></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <form class="col-xs-12 col-md-4" ng-submit="vm.sendMessage();" style=" position:absolute; z-index:1000;">
+        <fieldset class="row">
+          <div class="input-group" >
+            <input type="text"style= "width:57vw;" id="messageText" name="messageText" class="form-control" ng-model="vm.messageText" placeholder="Enter new message" autofocus >
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary" ng-disabled="!vm.messageText.length">Submit</button>
+            </span>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
 </section>

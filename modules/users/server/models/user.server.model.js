@@ -106,7 +106,7 @@ var UserSchema = new Schema({
   roles: {
     type: [{
       type: String,
-      enum: ['user', 'admin']
+      enum: ['user', 'admin', 'healthManager']
     }],
     default: ['user'],
     required: 'Please provide at least one role'
@@ -124,7 +124,12 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
+  },
+  loginCount: {
+    type: Number, //keep track of number of times the user has logged in, if it is 0 or 1, have the first page rendered be a configuration survey
+    default: 0
   }
+
 });
 
 /**

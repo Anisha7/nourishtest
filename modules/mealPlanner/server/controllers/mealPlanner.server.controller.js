@@ -52,6 +52,34 @@ exports.getEvents= function (req, res){
     }
   });
 }
+exports.reviewEvent = function (req, res){
+  //
+}
+exports.readEvent = function(req, res){
+  var event = req.event ? req.event.toJSON() : {};
+  // console.log('in test read');
+  // console.log(article);
+  // Add a custom field to the Article, for determining if the current User is the "owner".
+  // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
+  event.isCurrentUserOwner = !!(req.user && event.user && event.user._id.toString() === req.user._id.toString());
+
+  console.log('here' + event);
+  res.json(event);
+}
+exports.getEventByID = function (req, res, next, id){
+    console.log('geteventbydid');
+  MealPlannerEvent.findById(id).populate('user', 'displayName').exec(function (err, event) {
+    if (err) {
+      return next(err);
+    } else if (!event) {
+      return res.status(404).send({
+        message: 'No event with that identifier has been found'
+      });
+    }
+    req.event = event;
+    next();
+  });
+}
 // // mongoose.connect("mongodb://localhost:27017/mean-dev/TestArticles");
 // /**
 //  * Create an article

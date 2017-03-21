@@ -15,7 +15,7 @@
         controller: 'ChatController',
         controllerAs: 'vm',
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin', 'healthManager'],
           pageTitle: 'Chat'
         }
       })
@@ -25,7 +25,7 @@
         controller: 'EChatController',
         controllerAs: 'vm',
         data: {
-          roles: ['user', 'admin'],
+          roles: ['user', 'admin', 'healthManager'],
           pageTitle: 'Echat'
         },
         sticky: true

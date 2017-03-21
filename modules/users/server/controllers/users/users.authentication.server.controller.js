@@ -21,15 +21,17 @@ var noReturnUrls = [
 exports.signup = function (req, res) {
   // console.log(req.body);
   // For security measurement we remove the roles from the req.body object
-  delete req.body.roles;
+  // delete req.body.roles; //for testing, leave the roles
 
   // Init user and add missing fields
   var user = new User(req.body);
   user.provider = 'local';
   user.displayName = user.firstName + ' ' + user.lastName;
-  user.roles=[ 'admin' ]; //this line allows me to create admin users
+
+  // user.roles=[ 'admin' ]; //this line allows me to create admin users
   console.log(user);
   // Then save the user
+
   user.save(function (err) { // saves the user in the database
     if (err) {
       return res.status(422).send({

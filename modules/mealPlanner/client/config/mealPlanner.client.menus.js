@@ -12,28 +12,34 @@
     menuService.addMenuItem('topbar', {
       title: 'Browse Recipes',
       state: 'mealPlanner',
-      type: 'dropdown',
-      roles: ['*']
-    });
-
-    menuService.addSubMenuItem('topbar', 'mealPlanner', {
-      title: 'Browse Recipes', // Check that someone is logged in when attempting to use functionality, if not, route to login
-      state: 'mealPlanner',
+      // type: 'dropdown',
       roles: ['guest']
     });
-
-    menuService.addSubMenuItem('topbar', 'mealPlanner',{
+    menuService.addMenuItem('topbar', {
       title: 'Browse Recipes',
       state: 'userMP.userBrowse',
-      roles: ['user', 'admin']
-
+      // type: 'dropdown',
+      roles: ['user', 'admin', 'healthManager']
     });
 
-    menuService.addSubMenuItem('topbar', 'mealPlanner', {
-      title: 'Calendar',
-      state: 'userMP.calendarTest',
-      roles: ['user', 'admin']
-    });
+    // menuService.addSubMenuItem('topbar', 'mealPlanner', {
+    //   title: 'Browse Recipes', // Check that someone is logged in when attempting to use functionality, if not, route to login
+    //   state: 'mealPlanner',
+    //   roles: ['guest']
+    // });
+    //
+    // menuService.addSubMenuItem('topbar', 'mealPlanner',{
+    //   title: 'Browse Recipes',
+    //   state: 'userMP.userBrowse',
+    //   roles: ['user', 'admin']
+    //
+    // });
+
+    // menuService.addSubMenuItem('topbar', 'mealPlanner', {
+    //   title: 'Calendar',
+    //   state: 'userMP.calendarTest',
+    //   roles: ['user', 'admin']
+    // });
 
   }
 }());

@@ -27,6 +27,13 @@ module.exports = function (app) {
     .get(mealPlanner.getEvents)
     .post(mealPlanner.createEvent);
 
+  app.route('/api/mealPlanner/:mealEventId')
+      .get(mealPlanner.readEvent);
+      // .put(mealEvent.alterEvent);
+
+      // .put(articles.testArticleUpdate);
+
+    app.param('mealEventId', mealPlanner.getEventByID);
   // app.param('recipeTempId',browse.RecipeTempByID);
 
   //userArticlesCollection Routes

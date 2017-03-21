@@ -12,7 +12,8 @@
     vm.user=Authentication.user;
     console.log(vm.user);
     vm.article = article;
-    // console.log(vm.article);
+    // console.log(article);
+    console.log(vm.article);
     vm.authentication = Authentication;
     vm.comment={};
     $scope.article = article;

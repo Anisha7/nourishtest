@@ -50,6 +50,9 @@ var MealPlannerEventSchema = new Schema({
   title: {
     type: String
   },
+  meals: [{
+    type: String //this will eventually be a list of recipe object ids/titles/urls
+  }],
   user: {
     type: Schema.ObjectId,
     ref: 'User'

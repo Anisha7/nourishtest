@@ -9,10 +9,10 @@
 
   function menuConfig(menuService) {
     menuService.addMenuItem('topbar', {
-      title: 'Articles',
+      title: 'Blogs',
       state: 'articles',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['*'] //roles: user, admin, healthmanager
     });
 
     // Add the dropdown list item

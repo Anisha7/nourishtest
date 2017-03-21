@@ -15,8 +15,25 @@
       // Check authentication before changing state
       if (toState.data && toState.data.roles && toState.data.roles.length > 0) {
         var allowed = false;
-
+        // console.log('statechange');
+        // if (toState.name == 'userHome' && Authentication.user.roles != 'user'){
+        //   // console.log($state);
+        //   if (Authentication.user.roles  == 'admin'){
+        //     // toState.name ='adminHome';[
+        //     $state.go('adminHome').then(function(){
+        //       storePreviousState(toState,toParams);
+        //     })
+        //   }
+        //   if (Authentication.user.roles  == 'healthManager'){
+        //     // toState.name ='healthManagerHome';
+        //     console.log('health'); // this isnt working
+        //     $state.go('healthManagerHome').then(function(){
+        //       storePreviousState(toState,toParams);
+        //     })
+        //   }
+        // }
         for (var i = 0, roles = toState.data.roles; i < roles.length; i++) {
+          // console.log(roles[i]);
           if ((roles[i] === 'guest') || (Authentication.user && Authentication.user.roles !== undefined && Authentication.user.roles.indexOf(roles[i]) !== -1)) {
             allowed = true;
             break;
@@ -33,7 +50,7 @@
             // console.log("enter");
             // console.log(toState.url);
               if (toState.url=="/"){// redirect to home if not logged in
-                // console.log('in here');
+                console.log('in here it is slash');
                 $state.go('home').then(function(){
                   storePreviousState(toState,toParams);
                 })

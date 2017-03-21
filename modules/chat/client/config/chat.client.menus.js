@@ -13,7 +13,7 @@
       title: 'Chat',
       state: 'chat',
       type: 'dropdown',
-      roles: ['user', 'admin']
+      roles: ['user', 'admin', 'healthManager']
     });
     // menuService.addMenuItem('topbar', {
     //   title: 'Chat',
@@ -22,12 +22,12 @@
     menuService.addSubMenuItem('topbar', 'chat', {
       title: 'Original Chat',
       state: 'chat',
-      roles: ['user', 'admin']
+      roles: ['user', 'admin', 'healthManager']
     });
     menuService.addSubMenuItem('topbar', 'chat', {
       title: 'Encrypted Chat',
       state: 'eChat',
-      roles: ['user', 'admin']
+      roles: ['user', 'admin', 'healthManager']
     });
   }
 }());

@@ -138,7 +138,7 @@
         </div> -->
 
 
-        <div class="navmenu navmenu-default navmenu-fixed-left offcanvas" ng-controller="HeaderController as vm">
+        <div class="navmenu navmenu-default navmenu-fixed-left offcanvas navmenuCSS" ng-controller="HeaderController as vm">
           <!-- <nav class-"navbar navbar-custom navbar-fixed-top navbar-default "> -->
           <!-- <div class="navbar-header" >
             <button class="navbar-toggle" type="button" ng-click="vm.isCollapsed = !vm.isCollapsed">
@@ -148,7 +148,11 @@
               <span class="icon-bar"></span>
             </button> -->
             <a ui-sref="home" class="navmenu-brand" ng-hide="vm.authentication.user">Nourish</a>
-            <a ui-sref="userHome" class="navmenu-brand" ng-show="vm.authentication.user">Nourish</a>
+            <!-- do ng-show for vm.authentication.usertype= doctor or whatever then ui-sref to id page-->
+            <a href="/" class="navmenu-brand" ng-show="vm.authentication.user.roles[0]=='user'">Nourish</a>
+            <a ui-sref="adminHome" class="navmenu-brand" ng-show="vm.authentication.user.roles[0]=='admin'">Nourish</a>
+            <a ui-sref="healthManagerHome" class="navmenu-brand" ng-show="vm.authentication.user.roles[0]=='healthManager'">Nourish</a>
+
           <!-- </div> -->
           <!-- <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation"> -->
           <ul class="nav navmenu-nav" ng-hide="vm.authentication.user">
@@ -163,10 +167,11 @@
           <ul class="nav navmenu-nav" ng-show="vm.authentication.user">
             <li class="dropdown" uib-dropdown>
               <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
-                <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
-                <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
+                <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" style = "height:155px; width:158px;" />
+                <br><br><span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
               </a>
-              <ul class="dropdown-menu" role="menu">
+              <ul class="navmenu-nav dropdown-menu" role="menu">
+                <!-- class = dropdown-menu -->
                 <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
                   <a ui-sref="{{item.state}}" ng-bind="item.title"></a>
                 </li>
@@ -177,7 +182,7 @@
               </ul>
             </li>
           </ul>
-          <ul class="nav navmenu-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);">
+          <ul class="nav navmenu-nav navMenuElements" ng-if="vm.menu.shouldRender(vm.authentication.user);">
             <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
               <a ng-switch-when="dropdown" class="dropdown-toggle" uib-dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
 
