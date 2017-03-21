@@ -7,9 +7,10 @@ module.exports = {
     lib: {
       css: [
         // bower:css
-        'public/lib/angular-ui-notification/dist/angular-ui-notification.min.css',
-        'public/lib/bootstrap/dist/css/bootstrap.min.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+        'public/lib/bootstrap/dist/css/bootstrap.css',
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'public/lib/angular-ui-notification/dist/angular-ui-notification.css',
+        'public/lib/angular-bootstrap-calendar-master/dist/css/angular-bootstrap-calendar.min.css',
         'public/lib/startbootstrap-simple-sidebar-master/css/simple-sidebar.css',
         'public/lib/angular-ui-bootstrap/dist/ui-bootstrap-csp.css',
         'public/lib/jasny-bootstrap/css/jasny-bootstrap.min.css'
