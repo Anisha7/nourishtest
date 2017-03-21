@@ -1,0 +1,21 @@
+<div class="container" style="width:100%; z-index:-1;">
+See Recent communal posts
+  <button ng-click="triggerEvent()">Trigger Server Initialize</button>
+  <input type="text" placeholder="Search for friends" ng-model="communitySearchValue"/>
+  <button type=submit ng-click="communitySearch(communitySearchValue)">Search</button>
+  <div class="row">
+    WHere is this
+
+    <div ng-repeat="result in userSearch" class="list-group-item">
+      {{result}} <button ng-click="openUserAdd(result)">+</button>
+    </div>
+
+  </div>
+</div>
+<div  ng-show="AddingUser" style = "position:relative; border: solid 1px black; margin-top:-50%; margin-left:50%; height:70%; width:70%; z-index:100; background-color:white;">
+  <button ng-click="openUserAdd(UserToAdd)">X</button><br> Note: Eventually turn this into a ui-view for reuse on the user profile screens
+  Would you like to send a note (include photo/voice/video attachements?) to {{UserToAdd}}<br>
+  <textarea ng-model="UserToAdd.message"></textarea>
+  result: {{result}}
+  <button ng-click="addUser(UserToAdd)">Add</button>
+</div>

@@ -1,0 +1,323 @@
+<div class="container" style=" position:absolute; height: 75%; width:90%; z-index:100; background-color:white;">
+  <div class='col-md-2'>
+      <button class="btn" ui-sref="userHome.mainView">close</button>
+      <button class="btn" ng-click="edit=!edit">Edit Meal</button>
+      <button class="btn" ng-click='eventFinish()'>I finished</button>
+  </div>
+  <div class='col-md-10'>
+    <div class="row editEventMenu" ng-show="edit">
+      Edit event: Make sure that multiple recipes can be added to one event
+      Create a user preferences page to create a more comprehensive user meal plan-
+      Capture: breakfast, lunch, dinner, snack times as well as nutritional and palate preferences
+
+      Mealevent: {{mealEvent}}
+      <br>
+      <label>Event Title</label>
+      <div ng-repeat="meal in mealEvent">
+        <input type="text" class="form-control" ng-model="meal.title">
+        <label>Start Info:</label><br>
+        <label>End Info:</label>
+
+        <button class="btn btn-danger" ng-click="vm.events.splice($index, 1)">Delete</button>
+        <button class="btn" ng-click="saveEvent(event)">Save</button>
+          <!-- <tbody>
+
+          <tr ng-repeat="event in vm.events track by $index">
+            <td>
+
+            </td>
+
+            <td>
+              <p class="input-group" style="max-width: 250px">
+
+                <input
+                  type="text"
+                  class="form-control"
+                  readonly
+                  uib-datepicker-popup="dd MMMM yyyy"
+                  ng-model="meal.startsAt"
+                  is-open="meal.startOpen"
+                  close-text="Close" >
+                <span class="input-group-btn">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    ng-click="vm.toggle($event, 'startOpen', meal)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                  </button>
+                </span>
+              </p>
+              <div
+                uib-timepicker
+                ng-model="meal.startsAt"
+                hour-step="1"
+                minute-step="15"
+                show-meridian="true">
+              </div>
+            </td>
+            <td>
+              <p class="input-group" style="max-width: 250px">
+                <input
+                  type="text"
+                  class="form-control"
+                  readonly
+                  uib-datepicker-popup="dd MMMM yyyy"
+                  ng-model="meal.endsAt"
+                  is-open="meal.endOpen"
+                  close-text="Close">
+                <span class="input-group-btn">
+                  <button
+                    type="button"
+                    class="btn btn-default"
+                    ng-click="vm.toggle($event, 'endOpen', meal)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                  </button>
+                </span>
+              </p>
+              <div
+                uib-timepicker
+                ng-model="meal.endsAt"
+                hour-step="1"
+                minute-step="15"
+                show-meridian="true">
+              </div>
+            </td>
+            <td>
+              <button
+                class="btn btn-danger"
+                ng-click="vm.events.splice($index, 1)">
+                Delete
+              </button>
+              <button class="btn" ng-click="saveEvent(event)">Save</button>
+            </td>
+          </tr>
+        </tbody> -->
+
+      </div>
+    </div>
+    <div class="row eventCompleted" ng-show="finished" style=" height:100%; display:inline-block; padding:0; margin-left:10%;">
+        <h4>How was your meal</h4>
+        <div class="row" style="margin: 0; padding:0;">
+          <label style="float:left;">Ease of Prep:  </label>
+          <fieldset class="rating" style="margin-top:-7px;">
+            <input type="radio" id="star5"  name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4half"   name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+          </fieldset>
+        </div>
+        <div class="row" style="margin: 0; padding:0;">
+          <!-- Ease of prep: Have up to 5 stars -->
+          <label style="float:left;">How do you feel</label>
+
+          <fieldset class="rating" style="margin-top:-7px;">
+            <input type="radio" id="star5"  name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4half"   name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+          </fieldset>
+        </div>
+        <div class="row" style="margin: 0; padding:0;">
+          <label style="float:left;">Taste</label>
+          <fieldset class="rating" style="margin-top:-7px;">
+            <input type="radio" id="star5"  name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4half"   name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+          </fieldset>
+        </div>
+        <!-- <li>Overall</li> -->
+        <div class="row" style="margin: 0; padding:0;">
+          <!-- Ease of prep: Have up to 5 stars -->
+          <label style="float:left;">Overall Rating</label>
+
+          <fieldset class="rating" style="margin-top:-7px;">
+            <input type="radio" id="star5"  name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4half"   name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+          </fieldset>
+        </div>
+        <div class="row">
+          <a ng-click="showDrMessage=!showDrMessage">Additional Notes?</a>
+          <br>
+            <textarea cols="70" rows="5" ng-show="showDrMessage" height="200"></textarea>
+        </div>
+
+        <li>share to newsfeed</li>
+        <li>
+          <a ng-click="uploadImage=!uploadImage"> Upload Pictures</a>
+          <div class="form-group" ng-show="uploadImage">
+            <label class="control-label" for="imgs">Upload an Image (x images per x words) ** modify a custom file upload mechanism since its not working</label>
+            <!--NOT INCLUDED <input name="imgs" type="file" data-ng-model="vm.article.imgs" id="imgs" class="form-control" placeholder="img" multiple required></input> -->
+            <fieldset>
+              <div ng-show="vm.fileSelected" class="form-group text-center">
+                <div ng-repeat="imgs in vm.article.imgs">
+                  <img ngf-src="vm.fileSelected ? imgs : '/' + vm.user.profileImageURL" alt="{{vm.user.displayName}}" class="img-thumbnail user-profile-picture" ngf-drop>
+                </div>
+              </div>
+              <div ng-show="vm.loading" class="form-group text-center">
+                <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
+              </div>
+              <div ng-show="!vm.fileSelected" class="text-center form-group">
+                <button name="imgs" class="form-control btn btn-default btn-file" ngf-select="(vm.fileSelected = true) && (vm.loading = false)" name="photo" ng-model="vm.article.imgs" accept="image/*" ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400" multiple required>Select Picture</button>
+              </div>
+              <div ng-show="vm.fileSelected" class="text-center form-group">
+                <button class="btn btn-primary" ng-click="vm.upload(picFile)">Use This Picture</button>
+                <button class="btn btn-default" ng-click="vm.fileSelected = false">Cancel</button>
+              </div>
+              <div ng-show="vm.fileSelected" class="progress text-center">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{vm.progress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{vm.progress}}%" ng-bind="vm.progress + '%'">
+                  <span class="sr-only">{{vm.progress}}% Complete</span>
+                </div>
+              </div>
+            </fieldset>
+            <div ng-messages="vm.form.articleForm.imgs.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">At least one image is required.</p>
+            </div>
+          </div>
+        </li>
+        <li>amount finished</li>
+        <li>Leftover ingredients <button ng-click="reviewAddLeftOverIngredient()">Add Ingredient</button>
+          <div ng-repeat="ingredient in leftOverIngredients">
+            <input type="text" ng-model='ingredient.ingredient'/><button ng-click="leftOverIngredients.splice($index, 1)">X</button>
+          </div>
+        </li>
+
+
+        <button>Write Review<button>Complete</button>
+        <div class="row" style="margin: 0; padding:0;">
+          <p>Before they click complete, ensure that the date the meal ends has elapsed and vital selections have been made</p>
+        </div>
+    </div>
+
+  </div>
+  <!-- <div class= "container editEventMenu">
+
+    <h3 id="event-editor" style="width:70%;">
+      Edit events
+
+      <button class="btn pull-right" ui-sref="userMP.calendarTest">close</button>
+
+      <div class="clearfix"></div>
+
+    </h3>
+    <label>Once meal is finished, user can click finshed meal where
+      <br>they have option to enter meal review, add to favorites list, and enter in left overs<button>Finished meal</button>
+    <h3>Info: {{vm.events.startsAt}}
+       If event is not completed,
+    </h3>
+    <table class="table table-bordered" style="width:70%;">
+
+      <thead>
+        <tr>
+          <th>Meal</th>
+          <th>Starts at</th>
+          <th>Ends at</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr ng-repeat="event in vm.events track by $index">
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              ng-model="event.title">
+          </td>
+
+          <td>
+            <p class="input-group" style="max-width: 250px">
+
+              <input
+                type="text"
+                class="form-control"
+                readonly
+                uib-datepicker-popup="dd MMMM yyyy"
+                ng-model="event.startsAt"
+                is-open="event.startOpen"
+                close-text="Close" >
+              <span class="input-group-btn">
+                <button
+                  type="button"
+                  class="btn btn-default"
+                  ng-click="vm.toggle($event, 'startOpen', event)">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+            </p>
+            <div
+              uib-timepicker
+              ng-model="event.startsAt"
+              hour-step="1"
+              minute-step="15"
+              show-meridian="true">
+            </div>
+          </td>
+          <td>
+            <p class="input-group" style="max-width: 250px">
+              <input
+                type="text"
+                class="form-control"
+                readonly
+                uib-datepicker-popup="dd MMMM yyyy"
+                ng-model="event.endsAt"
+                is-open="event.endOpen"
+                close-text="Close">
+              <span class="input-group-btn">
+                <button
+                  type="button"
+                  class="btn btn-default"
+                  ng-click="vm.toggle($event, 'endOpen', event)">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+            </p>
+            <div
+              uib-timepicker
+              ng-model="event.endsAt"
+              hour-step="1"
+              minute-step="15"
+              show-meridian="true">
+            </div>
+          </td>
+          <td>
+            <button
+              class="btn btn-danger"
+              ng-click="vm.events.splice($index, 1)">
+              Delete
+            </button>
+            <button class="btn" ng-click="saveEvent(event)">Save</button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div> -->
+</div>

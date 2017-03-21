@@ -1,0 +1,100 @@
+<div class="container" style="background-color: #F3ECE1; height:100vh;position:fixed; margin-left:5%; overflow:scroll;">
+  <header class="container" style="height:40%; ">
+    <div class="row">
+        <h1>{{vm.user.displayName}}</h1>
+        <h3>Description:
+        <img class="" style="margin-right"src="{{vm.user.profileImageURL}}"/>
+
+    </div>
+    <!-- HELLO -->
+  </header>
+  <navbar> View Progress, View newsfeed, my photos, my reviews, popular interests, notificatoins</navbar>
+      <nav class="navbar navbar-custom  navbar-default " style="border-radius: 5px; background-color:white;">
+        <div class="container-fluid" style="width:100%;  ">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header" >
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" >Hello {{vm.user.displayName}}</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div  class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right" style="margin-right:5%; ">
+
+
+              <li ng-class="{active: activeTab === 'home'}"><a ui-sref="userHome.mainView">Calendar</a></li>
+              <li ng-class="{active: activeTab === 'home'}"><a ui-sref="userHome.community">Community</a></li>
+              <li ng-class="{active: activeTab === 'account'}"><a ui-sref="userHome.pastReviews">My Reviews</a></li>
+              <li ng-class="{active: activeTab === 'myProgress'}"><a ui-sref="home">Popular Recipes</a></li>
+              <!-- <li ng-class="{active: activeTab === 'mealPlanner'}"><a ui-sref="mealPlanner">Meal Planner</a></li> -->
+              <li ng-class="{active: activeTab === 'mealPlanner'} " class="dropdown" id='dog'>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Photos</a>
+                  <ul class="dropdown-menu">
+                    <li><a id= 'dog' href='' style="outline:0;" ui-sref="mealPlanner.browse.addMeal">Notifications</a></li>
+                    <li><a id= 'dog' href='' style="outline:0;" ui-sref="calendar">Calendar</a></li>
+                    <!-- <li><a id= 'dog' href='' style="outline:0;" ui-sref="form">View Articles</a></li> -->
+                    <!-- <li><a id= 'dog' href='' style="outline:0;" ui-sref="login">Login</a></li> -->
+                  </ul>
+              </li>
+              <li ng-class="{active: activeTab === 'education'} " class="dropdown" id='dog'>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Education</a>
+                  <ul class="dropdown-menu">
+                    <li><a id= 'dog' href='' style="outline:0;" ui-sref="education">New Articles</a></li>
+                    <li><a id= 'dog' href='' style="outline:0;" ui-sref="addArticle">Add Articles</a></li>
+                    <!-- <li><a id= 'dog' href='' style="outline:0;" ui-sref="form">View Articles</a></li> -->
+                    <!-- <li><a id= 'dog' href='' style="outline:0;" ui-sref="login">Login</a></li> -->
+                  </ul>
+              </li>
+              <!-- <li ng-class="{active: activeTab === 'chat'}"><a ui-sref="chat.History">Chat</a></li> -->
+              <!-- <li><a href="/login/logout" target="_self">Logout</a></li> -->
+
+              <!-- <li><a id= 'dog' href='' style="outline:0;" ui-sref="form">Signup Form Test</a></li> -->
+              <!-- <li><a id= 'dog' href='' style="outline:0;" ui-sref="register">Register</a></li> -->
+
+
+            </ul>
+
+            <!-- <ul class="nav navbar-nav">
+              <li class=""><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+
+            </ul> -->
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+  <div class="row">
+    <div class="container" ui-view="homePopUpDisplay1"></div>
+    <div class="col-md-8">
+      <div ui-view="HomePanel1"></div>
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <h3>Suggested meals</h3>
+      </div>
+      <div class="row">
+        <h3 ng-click="past=!past">Past Events</h3>
+        <div ng-show="past">List past events for reference? Could have another popup</div>
+      </div>
+      <div class="row">
+        <h3>Upcoming Events</h3>
+        <div ng-repeat= "upcoming in vm.events" class="list-group-item" ui-sref="userHome.manageEvent({mealEventId: upcoming._id})">
+          <!-- {{upcoming._id}} -->
+          Click object to open edit event page;
+           Meal: {{upcoming.title}}
+           When: {{upcoming.startsAt}}
+           completed: <input type="checkbox" ng-click="completedMeal($index)"/>
+        </div>
+      </div>
+      <div class="row">
+        <h3>Add Event</h3>
+      </div>
+      <!-- <div ui-view="HomePanel2"></div> -->
+    </div>
+  </div>
+</div>
