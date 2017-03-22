@@ -73,6 +73,14 @@
         },
         sticky:true
       })
+      .state('userMP.userBrowse.viewRecipe.recipeIngredients', {
+        url: '',
+        templateUrl: '/modules/mealPlanner/client/views/recipeViews/recipeIngredients.client.view.html'
+      })
+      .state('userMP.userBrowse.viewRecipe.recipeInstructions', {
+        url: '',
+        templateUrl: '/modules/mealPlanner/client/views/recipeViews/recipeInstructions.client.view.html'
+      })
       .state('userMP.userBrowse.viewRecipe.recipeNutrition', {
         url: '', //eventually this should be the recipe id
         templateUrl: '/modules/mealPlanner/client/views/recipeViews/recipeNutrition.client.view.html'
@@ -80,7 +88,7 @@
       .state('userMP.userBrowse.viewRecipe.recipeAddToCalendar', {
         url: '', //eventually this should be,
         templateUrl: '/modules/mealPlanner/client/views/recipeViews/recipeAddToCalendar.client.view.html',
-        
+
       })
       .state('userMP.userBrowse.viewRecipe.addToList',{
         url: '',
