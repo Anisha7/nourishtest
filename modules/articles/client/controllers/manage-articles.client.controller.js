@@ -11,10 +11,10 @@
     var vm = this;
     // console.log(Authentication.user.displayName);
     init();
-    // $scope.catfuck=false;
+    // $scope.cat=false;
     //gonna have to edit this so that it goes to a different path
     function init(){
-      // $scope.catfuck=false;
+      // $scope.cat=false;
       $http.get('/api/articles',{params:{displayName:Authentication.user.displayName}}).success(function(articles){
         vm.articles=articles;
         // console.log(articles);
@@ -31,9 +31,9 @@
     // });
     // alert(ArticlesService.query());
     $scope.showAdd=function(div){
-      // console.log("1"+ $scope.catfuck);
-      console.log(div + $scope.catfuck);
-      $scope.catfuck=!$scope.catfuck;
+      // console.log("1"+ $scope.cat);
+      console.log(div + $scope.cat);
+      $scope.cat=!$scope.cat;
     }
     $scope.saveArticle=function(isValid){
       //initialize article here
@@ -63,7 +63,7 @@
           // title: vm.article.title
         }
       }).then(function (response){
-        $scope.catfuck=!$scope.catfuck;
+        $scope.cat=!$scope.cat;
         console.log('file success?');
       });
 

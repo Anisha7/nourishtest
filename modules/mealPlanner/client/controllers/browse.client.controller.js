@@ -41,7 +41,7 @@
             // console.log(typeof(response));
             // $scope.temp =response;
             $scope.data=response; //causing an error for some reason
-            // console.log(response[0].results);
+            console.log(response);
             // $scope.apply;
         }).error(function(error){
           console.log("Error");
