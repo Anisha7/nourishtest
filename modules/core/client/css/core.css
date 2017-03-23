@@ -65,7 +65,6 @@ body {
   background-size:cover;
 }*/
 
-
 .intro {
   /*display: table;*/
   /*width: 100%;
@@ -400,3 +399,5 @@ position:relative; /* needed for IE 6 */
 #inner1 {
     background:#FFF;
 }
+
+/* ------- New Code goes below ----------- */
