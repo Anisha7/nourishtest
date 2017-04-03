@@ -227,11 +227,13 @@ position:relative; /* needed for IE 6 */
 }
 
 .navmenu-brand{
-  font-family: BradleyHandITC;
+  font-family: 'BradleyHandITC'fantasy;
   font-size: 35px;
+  font-weight: bold;
+
 }
 .navMenuElements{
-  font-family: BondoniMt;
+  font-family: 'BondoniMt'monospace;
   font-size: 25px;
 }
 
