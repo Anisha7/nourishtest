@@ -193,7 +193,7 @@ position:relative; /* needed for IE 6 */
   z-index: 1;
 }
 
-.navmenu-nav {
+navmenu-nav {
   height: 100%;
   width: 0;
   position: fixed;
