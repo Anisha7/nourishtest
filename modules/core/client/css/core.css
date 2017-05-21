@@ -7,7 +7,7 @@
 [ng-cloak],
 [x-ng-cloak],
 .ng-cloak,
-.x-ng-cloak {
+.x-ng-cloak {
   display: none !important;
 }
 .header-profile-image {
@@ -191,6 +191,19 @@ position:relative; /* needed for IE 6 */
 /******MANAGES HEADER NAV ******/
 .navmenu {
   z-index: 1;
+}
+
+.navmenu-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
 }
 
 .canvas {
