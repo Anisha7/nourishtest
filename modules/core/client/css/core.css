@@ -195,7 +195,7 @@ position:relative; /* needed for IE 6 */
 
 ul .nav {
   height: 100%;
-  width: 0;
+  width: 50%;
   position: fixed;
   z-index: 1;
   top: 0;
