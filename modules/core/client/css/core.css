@@ -193,15 +193,14 @@ position:relative; /* needed for IE 6 */
   z-index: 1;
 }
 
-ul .nav {
+.HeaderController {
   height: 100%;
   width: 50%;
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: white;
-  overflow-x: hidden;
   padding-top: 60px;
   transition: 0.5s;
 }
